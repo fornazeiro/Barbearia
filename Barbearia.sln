@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barbearia", "Barbearia\Barbearia.csproj", "{AEE0A074-2D5E-49C3-8B1C-A84CD70F7858}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEE0A074-2D5E-49C3-8B1C-A84CD70F7858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEE0A074-2D5E-49C3-8B1C-A84CD70F7858}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEE0A074-2D5E-49C3-8B1C-A84CD70F7858}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEE0A074-2D5E-49C3-8B1C-A84CD70F7858}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61242530-E749-402F-8600-9A7DFB09BF3F}
+	EndGlobalSection
+EndGlobal

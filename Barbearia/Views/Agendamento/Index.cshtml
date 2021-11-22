@@ -1,8 +1,48 @@
-﻿@{
+﻿@model Barbearia.Entidades.Agendamento
+
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<link href="~/Content/css/agendamento.css" rel="stylesheet" />
 <div id="calendar" style="margin-top: 50px;"></div>
+<div id="div-agendamento">
+    <div id="div-conteudo-agendar">
+        <form action="/Agendar" method="post">
+            <div class="row">
+                <input type="hidden" id="hfdIdCliente" name="Id" value="0" />
+
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="txtEmail">Email</label>
+                        <input type="email" class="form-control" id="txtEmail" name="Email" placeholder="Entre com seu e-mail">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="txtNome">Nome</label>
+                        <input type="text" class="form-control" id="txtNome" name="Nome" placeholder="Entre com seu nome">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="txtData">Data</label>
+                        <input type="text" class="form-control datepicker" id="txtData" name="DataAgendamento">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="txtHora">Hora</label>
+                        <input type="text" class="form-control datepicker" id="txtHora" name="HoraAgendamento">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 <script src="~/Scripts/agenda.js"></script>
 

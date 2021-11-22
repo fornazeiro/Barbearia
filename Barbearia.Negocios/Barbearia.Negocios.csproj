@@ -41,7 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Barbearia.Dados\Barbearia.Dados.csproj">
+      <Project>{eebdcdf2-1ea9-4051-8951-af4b8ea9644d}</Project>
+      <Name>Barbearia.Dados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Barbearia.Entidades\Barbearia.Entidades.csproj">
+      <Project>{c5e8ddb9-ba7d-4669-8bb3-a66e53573e5b}</Project>
+      <Name>Barbearia.Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

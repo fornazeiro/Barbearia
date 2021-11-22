@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace Barbearia.Controllers
 {
@@ -11,7 +7,21 @@ namespace Barbearia.Controllers
         // GET: Admin
         public ActionResult Index()
         {
+            if ((Session == null || Session.Count == 0))
+            {
+                Response.Redirect("/Login");
+            }
+
             return View();
+        }
+
+        public void Logof()
+        {
+            if (Session != null && Session.Count > 0)
+            {
+                Session.Abandon();
+                Response.Redirect("/Login");
+            }
         }
     }
 }

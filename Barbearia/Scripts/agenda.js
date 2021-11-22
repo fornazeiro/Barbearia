@@ -5,7 +5,8 @@
         initialView: 'dayGridMonth',
         locale: 'pt-br',
         dateClick: function (info) {
-            alert('Você clicou no dia: ' + moment(info.dateStr).format('DD/MM/YYYY'));
+            $('#txtData').val(moment(info.dateStr).format('DD/MM/YYYY'));
+            $('#div-agendamento').show();
         },       
         events: [
             {

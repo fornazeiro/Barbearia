@@ -22,7 +22,12 @@ namespace Barbearia.Dados.Repositorios
             throw new NotImplementedException();
         }
 
-        public List<Usuario> ListarPorId(int Id)
+        public Usuario ListarPorId(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Usuario> ListarPorNome(string nome)
         {
             throw new NotImplementedException();
         }

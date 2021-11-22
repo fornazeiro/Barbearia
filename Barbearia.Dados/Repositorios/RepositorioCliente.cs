@@ -12,7 +12,7 @@ namespace Barbearia.Dados.Repositorios
         {
             StringBuilder vSql = new StringBuilder();
 
-            vSql.AppendLine("DELETE FROM clientes)");
+            vSql.AppendLine("UPDATE clientes SET situacao = 0");
             vSql.AppendFormat("WHERE id = {0}", id);
 
             OpenConnection();

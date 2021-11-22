@@ -9,5 +9,6 @@ namespace Barbearia.Dados.Interfaces
 {
     public interface IAgendamentos : IBase<Agendamento>
     {
+        List<Agendamento> ListarPorData(DateTime data);
     }
 }

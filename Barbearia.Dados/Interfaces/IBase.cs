@@ -9,9 +9,9 @@ namespace Barbearia.Dados.Interfaces
     public interface IBase<T> where T : class
     {
         void Incluir(T entidade);
-        void Excuir(int Id);
+        void Excuir(int id);
         List<T> Listar();
-        T ListarPorId(int Id);
+        T ListarPorId(int id);
         List<T> ListarPorNome(string nome);
     }
 }

@@ -169,8 +169,6 @@
     <Compile Include="Controllers\ContatoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Shared\Conversoes.cs" />
-    <Compile Include="Shared\Funcoes.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -450,6 +448,10 @@
     <ProjectReference Include="..\Barbearia.Negocios\Barbearia.Negocios.csproj">
       <Project>{25053814-d49f-4f9c-8ff0-6beda9a9d5a3}</Project>
       <Name>Barbearia.Negocios</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Barbearia.Shared\Barbearia.Shared.csproj">
+      <Project>{01cd36c4-d09e-4d2f-9d43-d4d6c66c9793}</Project>
+      <Name>Barbearia.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

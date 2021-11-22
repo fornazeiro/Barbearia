@@ -1,5 +1,6 @@
 ﻿using Barbearia.Dados.Interfaces;
 using Barbearia.Entidades;
+using Barbearia.Shared;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -60,8 +61,8 @@ namespace Barbearia.Dados.Repositorios
             while (reader.Read())
             {
                 Entidades.Agendamento agendamento = new Entidades.Agendamento();
-                agendamento.Id = int.Parse(reader["id"].ToString());
-                agendamento.DataAgendamento = DateTime.Parse(reader["dataagendamento"].ToString());
+                agendamento.Id = reader["id"].ConvertObjectToInt();
+                agendamento.DataAgendamento = reader["dataagendamento"].ConvertObjectToDateTime();
                 agendamento.HoraAgentamento = reader["horaagendamento"].ToString();
                 agendamento.Situacao = bool.Parse(reader["situacao"].ToString());
 
@@ -93,8 +94,8 @@ namespace Barbearia.Dados.Repositorios
 
             while (reader.Read())
             {
-                agendamento.Id = int.Parse(reader["id"].ToString());
-                agendamento.DataAgendamento = DateTime.Parse(reader["dataagendamento"].ToString());
+                agendamento.Id = reader["id"].ConvertObjectToInt();
+                agendamento.DataAgendamento = reader["dataagendamento"].ConvertObjectToDateTime();
                 agendamento.HoraAgentamento = reader["horaagendamento"].ToString();
                 agendamento.Situacao = bool.Parse(reader["situacao"].ToString());
 
@@ -124,8 +125,8 @@ namespace Barbearia.Dados.Repositorios
             while (reader.Read())
             {
                 Entidades.Agendamento agendamento = new Entidades.Agendamento();
-                agendamento.Id = int.Parse(reader["id"].ToString());
-                agendamento.DataAgendamento = DateTime.Parse(reader["dataagendamento"].ToString());
+                agendamento.Id = reader["id"].ConvertObjectToInt();
+                agendamento.DataAgendamento = reader["dataagendamento"].ConvertObjectToDateTime();
                 agendamento.HoraAgentamento = reader["horaagendamento"].ToString();
                 agendamento.Situacao = bool.Parse(reader["situacao"].ToString());
 

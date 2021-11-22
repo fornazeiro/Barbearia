@@ -105,6 +105,10 @@
       <Project>{C5E8DDB9-BA7D-4669-8BB3-A66E53573E5B}</Project>
       <Name>Barbearia.Entidades</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Barbearia.Shared\Barbearia.Shared.csproj">
+      <Project>{01cd36c4-d09e-4d2f-9d43-d4d6c66c9793}</Project>
+      <Name>Barbearia.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

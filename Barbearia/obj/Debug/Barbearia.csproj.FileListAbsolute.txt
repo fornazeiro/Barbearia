@@ -228,3 +228,5 @@ C:\Barbearia\Barbearia\obj\Debug\Barbearia.csproj.CoreCompileInputs.cache
 C:\Barbearia\Barbearia\obj\Debug\Barbearia.csproj.CopyComplete
 C:\Barbearia\Barbearia\obj\Debug\Barbearia.dll
 C:\Barbearia\Barbearia\obj\Debug\Barbearia.pdb
+C:\Barbearia\Barbearia\bin\Barbearia.Shared.dll
+C:\Barbearia\Barbearia\bin\Barbearia.Shared.pdb

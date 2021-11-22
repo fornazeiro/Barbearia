@@ -1,5 +1,5 @@
 ﻿using Barbearia.Dados.Interfaces;
-using Barbearia.Entidades;
+using Barbearia.Shared;
 using System.Collections.Generic;
 using System.Text;
 using System;
@@ -66,10 +66,10 @@ namespace Barbearia.Dados.Repositorios
             while (reader.Read())
             {
                 Entidades.Cliente cliente = new Entidades.Cliente();
-                cliente.Id = int.Parse(reader["id"].ToString());
+                cliente.Id = reader["id"].ConvertObjectToInt();
                 cliente.Nome = reader["nome"].ToString();
                 cliente.Email = reader["Email"].ToString();
-                cliente.DataNascimento = DateTime.Parse(reader["datanascimento"].ToString());
+                cliente.DataNascimento = reader["datanascimento"].ConvertObjectToDateTime();
                 cliente.Situacao = bool.Parse(reader["situacao"].ToString());
 
                 clientes.Add(cliente);
@@ -100,10 +100,10 @@ namespace Barbearia.Dados.Repositorios
 
             while (reader.Read())
             {
-                cliente.Id = int.Parse(reader["id"].ToString());
+                cliente.Id = reader["id"].ConvertObjectToInt();
                 cliente.Nome = reader["nome"].ToString();
                 cliente.Email = reader["Email"].ToString();
-                cliente.DataNascimento = DateTime.Parse(reader["datanascimento"].ToString());
+                cliente.DataNascimento = reader["datanascimento"].ConvertObjectToDateTime();
                 cliente.Situacao = bool.Parse(reader["situacao"].ToString());
             }
 
@@ -131,10 +131,10 @@ namespace Barbearia.Dados.Repositorios
             while (reader.Read())
             {
                 Entidades.Cliente cliente = new Entidades.Cliente();
-                cliente.Id = int.Parse(reader["id"].ToString());
+                cliente.Id = reader["id"].ConvertObjectToInt();
                 cliente.Nome = reader["nome"].ToString();
                 cliente.Email = reader["Email"].ToString();
-                cliente.DataNascimento = DateTime.Parse(reader["datanascimento"].ToString());
+                cliente.DataNascimento = reader["datanascimento"].ConvertObjectToDateTime();
                 cliente.Situacao = bool.Parse(reader["situacao"].ToString());
 
                 clientes.Add(cliente);

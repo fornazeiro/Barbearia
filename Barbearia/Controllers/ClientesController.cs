@@ -26,6 +26,24 @@ namespace Barbearia.Controllers
             try
             {
                 nCliente.Incuir(cliente);
+
+                return null;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }            
+        }
+
+        public JsonResult Listar(Entidades.Cliente cliente)
+        {
+            Negocios.Cliente nCliente = new Negocios.Cliente();
+
+            try
+            {
+                nCliente.Listar();
+
                 return null;
             }
             catch (Exception)
@@ -33,7 +51,57 @@ namespace Barbearia.Controllers
 
                 throw;
             }
-            
+        }
+
+        public JsonResult ListarPorId(int id)
+        {
+            Negocios.Cliente nCliente = new Negocios.Cliente();
+
+            try
+            {
+                nCliente.ListarPorId(Id);
+
+                return null;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public JsonResult ListarPorNome(string nome)
+        {
+            Negocios.Cliente nCliente = new Negocios.Cliente();
+
+            try
+            {
+                nCliente.ListarPorNome(nome);
+
+                return null;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public JsonResult Excluir(int id)
+        {
+            Negocios.Cliente nCliente = new Negocios.Cliente();
+
+            try
+            {
+                nCliente.Excluir(id);
+
+                return null;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

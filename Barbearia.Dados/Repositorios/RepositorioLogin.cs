@@ -1,6 +1,5 @@
 ﻿using Barbearia.Dados.Interfaces;
 using Barbearia.Entidades;
-using System;
 using System.Text;
 
 namespace Barbearia.Dados.Repositorios

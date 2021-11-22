@@ -2,7 +2,6 @@
 using Barbearia.Shared;
 using System.Collections.Generic;
 using System.Text;
-using System;
 
 namespace Barbearia.Dados.Repositorios
 {

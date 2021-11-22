@@ -1,6 +1,4 @@
 ﻿using Barbearia.Dados.Interfaces;
-using Barbearia.Entidades;
-using System;
 using System.Collections.Generic;
 using System.Text;
 

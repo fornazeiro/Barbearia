@@ -32,7 +32,7 @@ namespace Barbearia.Dados.Repositorios
             StringBuilder vSql = new StringBuilder();
 
             vSql.AppendLine("INSERT INTO agendamento(DataAgendamento, HoraAgendamento, Situacao)");
-            vSql.AppendFormat("VALUES '{0}', '{1}', '{2}'", agendamento.DataAgendamento, agendamento.HoraAgentamento, agendamento.Situacao);
+            vSql.AppendFormat("VALUES '{0}', '{1}', '{2}'", agendamento.DataAgendamento, agendamento.HoraAgendamento, agendamento.Situacao);
 
             var command = Connection.CreateCommand();
             command.CommandType = System.Data.CommandType.Text;
@@ -63,7 +63,7 @@ namespace Barbearia.Dados.Repositorios
                 Entidades.Agendamento agendamento = new Entidades.Agendamento();
                 agendamento.Id = reader["id"].ConvertObjectToInt();
                 agendamento.DataAgendamento = reader["dataagendamento"].ConvertObjectToDateTime();
-                agendamento.HoraAgentamento = reader["horaagendamento"].ToString();
+                agendamento.HoraAgendamento = reader["horaagendamento"].ToString();
                 agendamento.Situacao = bool.Parse(reader["situacao"].ToString());
 
                 agendamentos.Add(agendamento);
@@ -96,7 +96,7 @@ namespace Barbearia.Dados.Repositorios
             {
                 agendamento.Id = reader["id"].ConvertObjectToInt();
                 agendamento.DataAgendamento = reader["dataagendamento"].ConvertObjectToDateTime();
-                agendamento.HoraAgentamento = reader["horaagendamento"].ToString();
+                agendamento.HoraAgendamento = reader["horaagendamento"].ToString();
                 agendamento.Situacao = bool.Parse(reader["situacao"].ToString());
 
             }
@@ -127,7 +127,7 @@ namespace Barbearia.Dados.Repositorios
                 Entidades.Agendamento agendamento = new Entidades.Agendamento();
                 agendamento.Id = reader["id"].ConvertObjectToInt();
                 agendamento.DataAgendamento = reader["dataagendamento"].ConvertObjectToDateTime();
-                agendamento.HoraAgentamento = reader["horaagendamento"].ToString();
+                agendamento.HoraAgendamento = reader["horaagendamento"].ToString();
                 agendamento.Situacao = bool.Parse(reader["situacao"].ToString());
 
                 agendamentos.Add(agendamento);

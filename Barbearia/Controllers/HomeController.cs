@@ -6,6 +6,8 @@ namespace Barbearia.Controllers
     {
         public ActionResult Index()
         {
+
+
             return View();
         }
 

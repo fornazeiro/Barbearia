@@ -26,14 +26,15 @@ namespace Barbearia.Dados.Repositorios
             Dispose();
         }
 
-        public void Incluir(Cliente cliente)
+        public void Incluir(Entidades.Cliente cliente)
         {
             StringBuilder vSql = new StringBuilder();
 
-            vSql.AppendLine("INSERT INTO clientes(Nome, DataNascimento, Email, Situacao)");
+            vSql.AppendLine("INSERT INTO clientes(nome, datanascimento, email, telefone, situacao)");
             vSql.AppendFormat("VALUES '{0}', '{1}', '{2}', '{3}', '{4}'", cliente.Nome, 
-                                                                          cliente.DataNascimento.ToString("yyyy-MM-dd"), 
-                                                                          cliente.Email, 
+                                                                          cliente.DataNascimento.ToString("yyyy-MM-dd"),
+                                                                          cliente.Email,
+                                                                          cliente.Telefone,
                                                                           cliente.Situacao);
 
             OpenConnection();
@@ -47,7 +48,7 @@ namespace Barbearia.Dados.Repositorios
             Dispose();
         }
 
-        public List<Cliente> Listar()
+        public List<Entidades.Cliente> Listar()
         {
             StringBuilder vSql = new StringBuilder();
             List<Entidades.Cliente> clientes = new List<Entidades.Cliente>();
@@ -79,7 +80,7 @@ namespace Barbearia.Dados.Repositorios
             return clientes;
         }
 
-        public Cliente ListarPorId(int id)
+        public Entidades.Cliente ListarPorId(int id)
         {
             StringBuilder vSql = new StringBuilder();
             List<Entidades.Cliente> clientes = new List<Entidades.Cliente>();
@@ -111,7 +112,7 @@ namespace Barbearia.Dados.Repositorios
             return cliente;
         }
 
-        public List<Cliente> ListarPorNome(string nome)
+        public List<Entidades.Cliente> ListarPorNome(string nome)
         {
             StringBuilder vSql = new StringBuilder();
             List<Entidades.Cliente> clientes = new List<Entidades.Cliente>();

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Barbearia.Controllers
@@ -59,7 +56,7 @@ namespace Barbearia.Controllers
 
             try
             {
-                nCliente.ListarPorId(Id);
+                nCliente.ListarPorId(id);
 
                 return null;
             }

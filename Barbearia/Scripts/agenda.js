@@ -1,6 +1,5 @@
 ﻿
 
-
 document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -10,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         dateClick: function (info) {
             $('#txtData').val(moment(info.dateStr).format('DD/MM/YYYY'));
             $('#div-agendamento').show();
+            ExibirMensagem('error', 'Teste' ,'mensagem de teste')
         },       
         events: [
             {

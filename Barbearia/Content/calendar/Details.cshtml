@@ -1,0 +1,184 @@
+﻿@model ReservaSalas.Models.Reservas
+
+@{
+    ViewData["Title"] = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id='div_breadcrumbs' class='mb-3'>
+    <ol class='tbreadcrumb'>
+        <li>
+            <a asp-action="Default" asp-controller="Home">
+                <span><i class='fas fa-home'></i> Início</span>
+            </a>
+        </li>
+        <li>
+            <a asp-action="Index">
+                <span> Gerenciar Reservas</span>
+            </a>
+        </li>
+        <li>
+            <span> Informações Detalhadas </span>
+        </li>
+    </ol>
+</div>
+
+<div class="app-title pr-3">
+    <div>
+        <h1><i class="fa fa-dashboard"></i>Gerenciar Reservas</h1>
+        <p>Informações Detalhadas</p>
+    </div>
+    <a asp-action="Edit" asp-route-id="@Model.SqReserva" class="btn btn-sm btn-primary float-right">Alterar Informações</a>
+</div>
+
+
+    <div class="row mb-4">
+        <div class="col-12 mb-0">
+            <h6 class="title-header">Informações</h6>
+        </div>
+        <div class="col-12">
+            <div class="txtInfo">
+                <strong>
+                    <label>Sala:</label>
+                </strong>
+                @Html.DisplayFor(model => model.SalasDropDownList.FirstOrDefault().Nome)
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="txtInfo">
+                <strong>
+                    <label>Solicitante:</label>
+                </strong>
+                <label>@Html.DisplayFor(model => model.ReservasSolicitanteApi.Where(x => x.IdSolicitante == model.IdSolicitante).FirstOrDefault().NomeSolicitante)</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="txtInfo">
+                <strong>
+                    <label>Número Participante:</label>
+                </strong>
+                <label>@Html.DisplayFor(model => model.NrParticipante)</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="txtInfo">
+                <strong>
+                    <label>Descrição Reserva:</label>
+                </strong>
+                <label>@Html.DisplayFor(model => model.DsReserva)</label>
+            </div>
+        </div>
+        @*<div class="col-12">
+            <div class="txtInfo">
+                <strong>
+                    <label>Reserva Complemento:</label>
+                </strong>
+                <label>@Html.DisplayFor(model => model.DsReservaCompleto)</label>
+            </div>
+        </div>*@
+        <div class="col-12">
+            <div class="txtInfo">
+                <strong>
+                    <label>Observação:</label>
+                </strong>
+                <label>@Html.DisplayFor(model => model.DsObservacao)</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="txtInfo">
+                <strong>
+                    <label>Data:</label>
+                </strong>
+                <label>@Html.DisplayFor(model => model.DtInicio)</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="txtInfo">
+                <strong>
+                    <label>Hora Início:</label>
+                </strong>
+                <label>@Html.DisplayFor(model => model.HrInicio)</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="txtInfo">
+                <strong>
+                    <label>Hora Fim:</label>
+                </strong>
+                <label>@Html.DisplayFor(model => model.HrFim)</label>
+            </div>
+        </div>
+        @*<div class="col-12">
+            <div class="txtInfo">
+                <strong>
+                    <label>Intranet:</label>
+                </strong>
+                <label>
+                    @if (Model.IndIntranet == "N")
+                    {
+                        @Html.DisplayName("Não")
+                    }
+                    else
+                    {
+                        @Html.DisplayName("Sim")
+                    }
+                </label>
+            </div>
+        </div>*@
+        <div class="col-12">
+            <div class="txtInfo">
+                <strong>
+                    <label>Status:</label>
+                </strong>
+                <label>
+                    @if (Model.IndValidado == "S")
+                    {
+                        @Html.DisplayName("Aprovado")
+                    }
+                    else
+                    {
+                        if (Model.IndValidado == "N")
+                        {
+                            @Html.DisplayName("Recusado")
+                        }
+                        else
+                        {
+                            @Html.DisplayName("Aguardando aprovação")
+                        }
+                    }
+                </label>
+            </div>
+        </div>
+        @{
+            if (Model.RecursosTableList != null && Model.RecursosTableList.Count > 0)
+            {
+                foreach (var item in Model.RecursosTableList)
+                {
+                    if (item.IndDeletado == 0)
+                    {
+                        <div class="col-12">
+                            <strong>
+                                <label>Recursos:</label>
+                            </strong>
+                        </div>
+                        break;
+                    }
+                }
+
+                foreach (var item in Model.RecursosTableList)
+                {
+                    if (item.IndDeletado == 0)
+                    {
+                        <div class="col-12">
+                            <div class="txtInfo">
+                                <strong>
+                                    <label>@Html.DisplayName(item.DsRecurso + ":")</label>
+                                </strong>
+                                <label>@Html.DisplayName(item.QntRecurso.ToString())</label>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        }
+    </div>

@@ -1,0 +1,364 @@
+﻿@model IEnumerable<ReservaSalas.Models.Reservas>
+@using ReservaSalas.Extensions
+@{
+    string cdn = Config.GetConfig("URL:CDN");
+    string domain = Config.GetConfig("URL:Domain");
+}
+
+@{
+    ViewData["Title"] = "Index";
+    TempData["Teste"] = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" charset="UTF-8">
+    <link rel="stylesheet" href="~/lib/calendar/calendar.css" charset="UTF-8">
+}
+
+<div id='div_breadcrumbs' class='mb-3'>
+    <ol class='tbreadcrumb'>
+        <li>
+            <a asp-action="Default" asp-controller="Home">
+                <span><i class='fas fa-home'></i> Início</span>
+            </a>
+        </li>
+        <li>
+            <span>Gerenciar Reservas</span>
+        </li>
+    </ol>
+</div>
+
+<div class="app-title mb-4">
+    <div>
+        <h1><i class="fa fa-dashboard"></i>Gerenciar Reservas</h1>
+        <p>Lista de Reservas</p>
+    </div>
+    @if (ViewBag.Gestor == "S" || ViewBag.Usuario == "S")
+    {
+        <a class='float-right btn btn-sm btn-success' asp-action="Create">Nova Reserva</a>
+    }
+</div>
+@Html.Raw(TempData["alert"])
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" href="#geral" role="tab" data-toggle="tab">Geral</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#tabCalendar" role="tab" data-toggle="tab">Calendário</a>
+    </li>
+</ul>
+
+
+
+<div class="tab-content" style="min-height: 250px;">
+    <div role="tabpanel" class="tab-pane active" id="geral">
+        <form method="post">
+            <div class="row mt-2">
+                <div class="col-12">
+                    <label> Data </label>
+                    <div class="input-group">
+                        <input type="text" id="calendario" class="form-control datepicker data-pt" onchange="filtrar()" readonly="readonly" value="@TempData["Data"]" placeholder="dd/mm/aaaa" />
+                        <input id="pesquisa" name="pesquisa" type="hidden" />
+                        <input asp-route-pesquisa="pesquisa" asp-action="Index" asp-route-origem="Index" type="submit" value="Buscar" class="btn btn-outline-dark btn-sm">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div type="text" id="accordion" class="myaccordion">
+            @{
+                int count = 0;
+                if (ViewBag.ReservasAgrupadas != null && ViewBag.ReservasAgrupadas.Count > 0)
+                {
+                    foreach (var reservas in ViewBag.ReservasAgrupadas)
+                    {
+                        count = count + 1;
+                        var target = "collapse" + count;
+                        int SqSala = reservas.SqSala;
+                        string nome = reservas.DsLocal.ToUpper() + " - " + reservas.DsSala.ToUpper() + reservas.TpSala;
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="d-flex align-items-center justify-content-between btn btn-link btn-collapse" data-toggle="collapse" data-target="#@target" aria-expanded="true" aria-controls="@target">
+                                        @nome
+                                        <span class="fa-stack fa-sm">
+                                            <i class="card-arrow fas fa-chevron-down fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="@target" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    <table class="example-clean table table-striped table-bordered table-hover dataTable no-footer dtr-inline" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Solicitante
+                                                </th>
+                                                <th>
+                                                    Número Participante
+                                                </th>
+                                                <th>
+                                                    Descrição Reserva
+                                                </th>
+                                                <th>
+                                                    Observação
+                                                </th>
+                                                <th>
+                                                    Data
+                                                </th>
+                                                <th>
+                                                    Hora Início
+                                                </th>
+                                                <th>
+                                                    Hora Fim
+                                                </th>
+                                                <th>
+                                                    Status
+                                                </th>
+                                                <th>
+                                                    Configurações
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.Where(x => x.SqSala == SqSala))
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.ReservasSolicitanteApi.Where(x => x.IdSolicitante == item.IdSolicitante).FirstOrDefault().NomeSolicitante)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.NrParticipante)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.DsReserva)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.DsObservacao)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.DtInicio)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.HrInicio)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.HrFim)
+                                                    </td>
+                                                    <td>
+                                                        @if (item.IndValidado == "S")
+                                                        {
+                                                            <span class="badge badge-success p-2">@Html.DisplayName("Aprovado")</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            if (item.IndValidado == "N")
+                                                            {
+                                                                <span class="badge badge-danger p-2">@Html.DisplayName("Recusado")</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span class="badge badge-warning p-2">@Html.DisplayName("Aguardando aprovação")</span>
+                                                            }
+                                                        }
+                                                    </td>
+                                                    <td>
+                                                        @if (item.Criador || item.Responsavel)
+                                                        {
+                                                            @if (item.IndValidado != "S" && item.Responsavel)
+                                                            {
+                                                                <a asp-action='Aprovar' asp-route-idReserva='@item.SqReserva' data-toggle='popover' data-trigger='hover' data-content='Aprovar' class='btn btn-outline-dark btn-sm'><i class='fas fa-check'></i></a>
+                                                                <a asp-action='Reprovar' asp-route-idReserva='@item.SqReserva' data-toggle='popover' data-trigger='hover' data-content='Reprovar' class='btn btn-outline-dark btn-sm'><i class='fas fa-ban'></i></a>
+                                                            }
+                                                            <a asp-action='Details' asp-route-id='@item.SqReserva' data-toggle='popover' data-trigger='hover' data-content='Detalhar' class='btn btn-outline-dark btn-sm'><i class='fas fa-eye'></i></a>
+                                                            <a asp-action='Edit' asp-route-id='@item.SqReserva' data-toggle='popover' data-trigger='hover' data-content='Editar' class='btn btn-outline-dark btn-sm'><i class='fas fa-edit'></i></a>
+                                                            <a data-code="@item.SqReserva" data-toggle="modal" data-content="Excluir" class="btn btn-outline-dark btn-sm" data-target="#@item.ModalShow"><i class="fas fa-trash"></i></a>
+                                                            <!-- The Modal -->
+                                                            <div class="modal" id="@item.ModalShow">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <!-- Modal Header -->
+                                                                        <div class="modal-header">
+                                                                            <h4 class="modal-title">Atenção</h4>
+                                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                        </div>
+
+                                                                        <!-- Modal body -->
+                                                                        <div class="modal-body">
+                                                                            <p>Deseja Realmente excluir esse registro?</p>
+                                                                        </div>
+
+                                                                        <!-- Modal footer -->
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-info" data-dismiss="modal">Não</button>
+                                                                            <form asp-controller="Reservas" asp-route-id="@item.SqReserva" asp-action="Delete" method="post">
+                                                                                <input name="credentialId" type="hidden" value="@item.SqReserva" />
+                                                                                <button type="submit" class="btn btn-danger">Sim</button>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+
+                    <div class="alert alert-warning" role="alert">
+                        Não existe reserva para a data selecionada.
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="tabCalendar">
+        <div class="row mt-2">
+            <div class="col-12">
+                <label>Sala</label>
+                <div class="form-group">
+                    <select id="sqSala" class="select form-control select-obrigatorio select-search" style="width: 100%;" onchange="reservaCalendario()">
+                        <option value="">- Selecione -</option>
+                        @{
+                            foreach (var item in ViewBag.Salas)
+                            {
+                                <option value="@item.Id">@item.Nome</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="col-12 mt-2">
+                <div class="calendar" id="calendar">
+                    <div class="row">
+                        <div class="left-side col-12 col-sm-12 col-md-12 col-lg-12 col-xl-5">
+                            <div class="current-day text-center">
+                                <div class="calendar-left-side-day"></div>
+                                <div class="calendar-left-side-day-of-week"></div>
+                            </div>
+
+                            <div class="current-day-reserves">
+                                <div class="title-reserves">
+                                    <span>Reservas:</span>
+                                    <span id="addReserva" class="fa fa-plus-circle btn-add-reserve" title="Ciar uma nova reserva" onclick="addReserva()"></span>
+                                </div>
+                                <ul class="current-day-reserves-list"></ul>
+                            </div>
+                        </div>
+
+                        <div class="right-side col-12 col-sm-12 col-md-12 col-lg-12 col-xl-7">
+                            <div class="calendar-change-year">
+                                <div class="today-btn btn btn-sm btn-outline-dark">Hoje</div>
+                                <div class="calendar-change-year-slider float-right">
+                                    <span class="fa fa-caret-left btn-cursor-pointer calendar-change-year-slider-prev"></span>
+                                    <span class="calendar-current-year"></span>
+                                    <span class="fa fa-caret-right btn-cursor-pointer calendar-change-year-slider-next"></span>
+                                </div>
+                            </div>
+                            <ul class="calendar-month"></ul>
+                            <ul class="calendar-week"></ul>
+                            <ul class="calendar-days"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script async src="~/lib/calendar/calendar.js" charset="UTF-8"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.select-search').select2();
+            $('#calendar').hide();
+        });
+
+        $("#calendario").datepicker({
+            dateFormat: 'dd/mm/yy',
+            dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+            dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+            dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+            monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            changeMonth: false,
+            numberOfMonths: 1
+        });
+
+        function filtrar() {
+            $('#pesquisa').val($('#calendario').val());
+        }
+
+        function reservaCalendario() {
+            var data = ($('.selected-day').val() + 1) + '/' + $("#mesCalandario").val() + '/' + $('.calendar-current-year').text();
+            var partesData = data.split("/");
+            var dataSelecionada = new Date(partesData[2], partesData[1] - 1, partesData[0]);
+
+            if (dataSelecionada > new Date()) {
+                $('#addReserva').show();
+            } else {
+                $('#addReserva').hide();
+            }
+
+            var sqSala = $('#sqSala').val();
+            if (sqSala > 0) {
+                $('#calendar').show();
+            } else {
+                $('#calendar').hide();
+            }
+            
+            $('.current-day-reserves-list').empty();
+            for (i = 1; i <= 31; i++) {
+                $("#" + i).removeClass("reserve-day");
+            }
+
+            var temReserva = false;
+            var mes = $("#mesCalandario").val();
+            var ano = $('.calendar-current-year').text();
+            var url = '@Url.Action("Calendario", "Reservas")';
+
+            $.get(url, { 'sqSala': sqSala, 'mes': mes, 'ano': ano })
+                .done(function (data, status) {
+                    if (status == 'success') {
+                        $('.current-day-reserves-list').empty();
+                        for (var i = 0; i < data.length; i++) {
+                            $("#" + new Date(data[i].dtInicio).getDate()).addClass("reserve-day");
+
+                            if (new Date(data[i].dtInicio).getDate() == $('.selected-day').val()) {
+                                temReserva = true;
+                                $('.current-day-reserves-list').append('<li>' + data[i].hrInicio + " - " + data[i].hrFim + " &nbsp | &nbsp " + data[i].dsReserva + '</li>');
+                            }
+                        }
+
+                        if (temReserva == false) {
+                            $('.current-day-reserves-list').append('<li>Nenhuma reserva agendada neste dia</li>');
+                        }
+                    }
+                }).fail(function () {
+                    alert("Erro ao buscar reservas.");
+                });
+        };
+
+        $('#sqSala').on('change', function myfunction() {
+            $('.today-btn').trigger('click');
+        });
+
+        function addReserva() {
+            var dia = $('.selected-day').val().toString().length == 1 ? "0" + $('.selected-day').val() : $('.selected-day').val();
+            var mes = $("#mesCalandario").val().toString().length == 1 ? "0" + $("#mesCalandario").val() : $("#mesCalandario").val();
+            var dataSelecionada = dia + "/" + mes + "/" + $('.calendar-current-year').text();
+            window.location.href = "@domain/Reservas/Create?id=" + $('#sqSala').val() + "&dtReserva=" + dataSelecionada;
+        }
+    </script>
+}

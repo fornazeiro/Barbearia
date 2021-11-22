@@ -18,5 +18,22 @@ namespace Barbearia.Controllers
 
             return View();
         }
+
+        public JsonResult Incluir(Entidades.Cliente cliente)
+        {
+            Negocios.Cliente nCliente = new Negocios.Cliente();
+
+            try
+            {
+                nCliente.Incuir(cliente);
+                return null;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
     }
 }

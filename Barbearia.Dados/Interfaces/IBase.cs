@@ -11,6 +11,7 @@ namespace Barbearia.Dados.Interfaces
         void Incluir(T entidade);
         void Excuir(int Id);
         List<T> Listar();
-        List<T> ListarPorId(int Id);
+        T ListarPorId(int Id);
+        List<T> ListarPorNome(string nome);
     }
 }

@@ -4,6 +4,7 @@ using Barbearia.Shared;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace Barbearia.Dados.Repositorios
 {
@@ -169,49 +170,56 @@ namespace Barbearia.Dados.Repositorios
             //}
 
             Entidades.Calendario calendario = new Entidades.Calendario();
-            calendario.title = "teste";
+            calendario.title = "Nelson";
             calendario.start = "2021-11-10T08:00:00";
             calendarios.Add(calendario);
 
             calendario = new Entidades.Calendario();
-            calendario.title = "teste";
+            calendario.title = "Regina";
             calendario.start = "2021-11-10T08:40:00";
             calendarios.Add(calendario);
 
             calendario = new Entidades.Calendario();
-            calendario.title = "teste";
+            calendario.title = "Daniel";
             calendario.start = "2021-11-10T09:00:00";
             calendarios.Add(calendario);
 
             calendario = new Entidades.Calendario();
-            calendario.title = "teste";
+            calendario.title = "Felipe";
             calendario.start = "2021-11-10T09:40:00";
             calendarios.Add(calendario);
 
             calendario = new Entidades.Calendario();
-            calendario.title = "teste";
+            calendario.title = "Marcos";
             calendario.start = "2021-11-15T09:00:00";
             calendarios.Add(calendario);
 
             calendario = new Entidades.Calendario();
-            calendario.title = "teste";
+            calendario.title = "Andre";
             calendario.start = "2021-11-16 08:00:00";
             calendarios.Add(calendario);
 
             calendario = new Entidades.Calendario();
-            calendario.title = "teste";
+            calendario.title = "Miriam";
             calendario.start = "2021-11-18 09:30:00";
             calendarios.Add(calendario);
 
             calendario = new Entidades.Calendario();
-            calendario.title = "teste";
+            calendario.title = "Jose";
             calendario.start = "2021-11-20 15:00:00";
             calendarios.Add(calendario);
 
             calendario = new Entidades.Calendario();
-            calendario.title = "teste";
+            calendario.title = "Aline";
             calendario.start = "2021-12-20 15:00:00";
             calendarios.Add(calendario);
+
+            //var ListarCalendarios = calendarios.Select(x => x.start).Distinct().ToList();
+
+            //foreach (var item in ListarCalendarios)
+            //{
+
+            //}
 
             Dispose();
 

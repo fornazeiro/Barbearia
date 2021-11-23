@@ -1,0 +1,31 @@
+﻿@model Barbearia.Entidades.Cliente
+
+<div id="div-agendamentos">
+    <form action="/Agendar" method="post">
+        <div id="div-conteudo-agendar">
+            <div class="row">
+                <input type="hidden" id="hfdIdCliente" name="Id" value="0" />
+
+                <div class="col-11">
+                    <div class="form-group">
+                        <label for="txtEmail">Email</label>
+                        <input type="email" class="form-control" id="txtEmail" name="Email" placeholder="Entre com seu e-mail">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="txtNome">Nome</label>
+                        <input type="text" class="form-control" id="txtNome" name="Nome" placeholder="Entre com seu nome">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="txtTelefone">Telefone</label>
+                        <input type="text" class="form-control" id="txtTelefone" name="DataTelefone">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="~/Scripts/cliente.js"></script>

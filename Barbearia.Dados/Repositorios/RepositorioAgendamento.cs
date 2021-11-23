@@ -32,8 +32,8 @@ namespace Barbearia.Dados.Repositorios
             StringBuilder vSql = new StringBuilder();
 
             vSql.AppendLine("INSERT INTO agendamentos(data, hora, situacao)");
-            vSql.AppendFormat("VALUES('{0}', '{1}', {2})", agendamento.DataAgendamento.ToString("yyyy-MM-dd"), 
-                                                             agendamento.HoraAgendamento, 
+            vSql.AppendFormat("VALUES('{0}', '{1}', {2})", agendamento.DataAgendamento.ToString("yyyy-MM-dd"),
+                                                             agendamento.HoraAgendamento,
                                                              agendamento.Situacao == true ? 1 : 0);
 
             OpenConnection();
@@ -171,7 +171,7 @@ namespace Barbearia.Dados.Repositorios
             Entidades.Calendario calendario = new Entidades.Calendario();
             calendario.title = "teste";
             calendario.start = "2021-11-10T08:00:00";
-            calendarios.Add(calendario); 
+            calendarios.Add(calendario);
 
             calendario = new Entidades.Calendario();
             calendario.title = "teste";
@@ -188,22 +188,22 @@ namespace Barbearia.Dados.Repositorios
             calendario.start = "2021-11-10T09:40:00";
             calendarios.Add(calendario);
 
-            calendario = new Entidades.Calendario();            
+            calendario = new Entidades.Calendario();
             calendario.title = "teste";
             calendario.start = "2021-11-15T09:00:00";
-            calendarios.Add(calendario); 
-            
-            calendario = new Entidades.Calendario();           
+            calendarios.Add(calendario);
+
+            calendario = new Entidades.Calendario();
             calendario.title = "teste";
             calendario.start = "2021-11-16 08:00:00";
-            calendarios.Add(calendario); 
+            calendarios.Add(calendario);
 
             calendario = new Entidades.Calendario();
             calendario.title = "teste";
             calendario.start = "2021-11-18 09:30:00";
-            calendarios.Add(calendario); 
-            
-            calendario = new Entidades.Calendario();                        
+            calendarios.Add(calendario);
+
+            calendario = new Entidades.Calendario();
             calendario.title = "teste";
             calendario.start = "2021-11-20 15:00:00";
             calendarios.Add(calendario);
@@ -212,26 +212,12 @@ namespace Barbearia.Dados.Repositorios
             calendario.title = "teste";
             calendario.start = "2021-12-20 15:00:00";
             calendarios.Add(calendario);
-            OpenConnection();
-
-            var command = Connection.CreateCommand();
-            command.CommandType = System.Data.CommandType.Text;
-            command.CommandText = vSql.ToString();
-
-            var reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                calendario = new Entidades.Calendario();
-                calendario.start =  DateTime.Parse(reader["data"].ToString()).ToString("yyyy-MM-dd") + " " + reader["hora"].ConvertObjectToString();
-                calendario.title = "teste";
-
-                calendarios.Add(calendario);
-            }
 
             Dispose();
 
             return calendarios;
         }
+
+
     }
 }

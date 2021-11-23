@@ -181,6 +181,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\calendar\calendar.css" />
+    <Content Include="Content\calendar\calendar.js" />
     <Content Include="Content\css\agendamento.css" />
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\animate.min.css" />
@@ -388,6 +390,10 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\css\bootstrap.min.css.map" />
+    <Content Include="Content\calendar\Create.cshtml" />
+    <Content Include="Content\calendar\Details.cshtml" />
+    <Content Include="Content\calendar\Edit.cshtml" />
+    <Content Include="Content\calendar\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\common.js" />
     <Content Include="Scripts\datepicker-pt-BR.js" />

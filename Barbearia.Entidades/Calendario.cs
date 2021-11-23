@@ -8,6 +8,7 @@ namespace Barbearia.Entidades
 {
     public class Calendario
     {
-
+        public string start { get; set; }
+        public string title { get; set; }
     }
 }

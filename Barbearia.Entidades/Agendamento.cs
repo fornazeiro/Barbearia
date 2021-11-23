@@ -7,6 +7,8 @@ namespace Barbearia.Entidades
         public int Id { get; set; }
         public DateTime DataAgendamento { get; set; }
         public string HoraAgendamento { get; set; }
+        public string title { get; set; }
+        public string start { get; set; }
         public bool Situacao { get; set; }
     }
 }

@@ -64,3 +64,5 @@ C:\Barbearia\Barbearia.Dados\obj\Debug\Barbearia.Dados.csproj.CoreCompileInputs.
 C:\Barbearia\Barbearia.Dados\obj\Debug\Barbearia.Dados.csproj.CopyComplete
 C:\Barbearia\Barbearia.Dados\obj\Debug\Barbearia.Dados.dll
 C:\Barbearia\Barbearia.Dados\obj\Debug\Barbearia.Dados.pdb
+C:\Barbearia\Barbearia\Barbearia.Dados\bin\Debug\Barbearia.Shared.dll
+C:\Barbearia\Barbearia\Barbearia.Dados\bin\Debug\Barbearia.Shared.pdb

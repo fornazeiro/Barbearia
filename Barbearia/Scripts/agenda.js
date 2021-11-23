@@ -9,32 +9,97 @@ document.addEventListener('DOMContentLoaded', function () {
         dateClick: function (info) {
             $('#txtData').val(moment(info.dateStr).format('DD/MM/YYYY'));
             $('#div-agendamento').show();
-            ExibirMensagem('error', 'Teste' ,'mensagem de teste')
-        },       
-        events: [
-            {
-                title: '3 eventos',
-                start: '2021-11-01',  
-                end: '2021-11-01'
-            },
-            {
-                title: 'event2',
-                start: '2021-11-05',
-                end: '2021-11-05',
-                color: 'black',     // an option!
-                textColor: 'black', // an option!
-                backgroundColor: 'yellow'
-            },
-            {
-                title: 'event3',
-                start: '2021-11-09T12:30:00',
-                allDay: false // will make the time show
-            }
-        ]
+        },
+        events: function (start, end, timezone, callback) {
+            $.ajax({
+                dataType: 'json',
+                type: "GET",
+                url: "Agendamento/ListarCalendario",
+                cache: false,
+                success: function (result) {
+                    var events = [];
+                    debugger;
+                    $.each(result, function (i, data) {
+                        events.push(
+                        {
+                            title: data.title,
+                            start: moment(data.start).format("YYYY-MM-DD HH:mm:ss"),
+                            end: moment(data.start).format("YYYY-MM-DD HH:mm:ss"),
+                            backgroundColor: "#9501fc",
+                            borderColor: "#fc0101" 
+                        });
+                    });
+
+                    callback(events);
+                }
+            });
+        }        
         
     });
     calendar.render();
+    
 });
+
+var SalvarAgendamento = function () {
+    let modal = '#div-agendamento';
+
+    //ExibirLoader();
+
+    //var pCliente = new FormData(document.getElementById("frm-cliente"));
+
+    var form = document.querySelector('#frmAgenda');
+    var agendamento = new FormData(form);
+
+    $.ajax({
+        type: "POST",
+        url: "Agendamento/Incluir",
+        enctype: 'multipart/form-data',
+        contentType: false,
+        processData: false,
+        data: agendamento,
+        success: function (result) {
+            if (result)
+                ExibirMensagem('success', 'Sucesso', 'Dados salvos com sucesso!')
+        },
+        complete: function () {
+            //ListarClientes(1);
+        },
+        error: function (request, status, error) {
+            let dom_nodes = $($.parseHTML(request.responseText));
+            ExibirMensagemErroCritico('Operação não realizada', dom_nodes.filter('title').text());
+            OcultarLoader();
+        }
+    }).then(function () {
+        //FecharModal(modal);
+        OcultarLoader();
+    });
+}
+
+function ListarAgendamentos() {
+   // ExibirLoader();
+
+    $.ajax({
+        dataType: "json",
+        type: "POST",
+        url: "Agendamento/ListarCalendario",
+        cache: false,
+        success: function (data, textStatus, xhr) {
+            debugger;
+            let dados = JSON.stringify(data);
+            return dados; 
+        },
+        complete: function () {
+
+        },
+        error: function (request, status, error) {
+            let dom_nodes = $($.parseHTML(request.responseText));
+            ExibirMensagemErroCritico('Operação não realizada', dom_nodes.filter('title').text());
+            //OcultarLoader();
+        }
+    }).then(function () {
+        //OcultarLoader();
+    });
+}
 
 var fecharmodalagendamento = () => {
     $('#txtEmail').val('');

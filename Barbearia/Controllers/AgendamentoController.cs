@@ -12,9 +12,9 @@ namespace Barbearia.Controllers
         public ActionResult Index()
         {
             //if (agendamento != null)
-           // {
-           //     Incluir(agendamento);
-           // }
+            // {
+            //     Incluir(agendamento);
+            // }
 
             return View();
         }
@@ -22,21 +22,47 @@ namespace Barbearia.Controllers
         [HttpPost]
         public JsonResult Incluir(Entidades.Agendamento agendamento)
         {
-            Negocios.Agendamento nAgendamento = new Negocios.Agendamento();
+            try
+            {
+                Negocios.Agendamento nAgendamento = new Negocios.Agendamento();
 
-            agendamento.Situacao = true;
-            nAgendamento.Incluir(agendamento);
+                var agenda = ListarPorDataHora(agendamento);
 
-            return null;
+                if (agenda == null || agenda.Count == 0)
+                {
+                    agendamento.Situacao = true;
+                    nAgendamento.Incluir(agendamento);
+                }
+                else
+                {
+                    throw new Exception("já existe um agendamento com esses dados.");
+                }
+
+                return Json("Agendamento efetuado com sucesso!", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        private JsonResult Listar(Entidades.Agendamento agendamento)
+        private List<Entidades.Agendamento> ListarPorDataHora(Entidades.Agendamento agendamento)
         {
             Negocios.Agendamento nAgendamento = new Negocios.Agendamento();
 
-            nAgendamento.ListarPorData(agendamento.DataAgendamento);
+            var agendamentos = nAgendamento.ListarPorDataHora(agendamento);
 
-            return null;
+            return agendamentos;
+        }
+
+        //[HttpPost]
+        public JsonResult ListarCalendario()
+        {
+            Negocios.Agendamento nAgendamento = new Negocios.Agendamento();
+
+            var agendamentos = nAgendamento.ListarCalendario();
+
+            return Json(agendamentos, JsonRequestBehavior.AllowGet);
         }
     }
 }

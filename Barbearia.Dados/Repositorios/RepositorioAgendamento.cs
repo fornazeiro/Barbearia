@@ -226,6 +226,35 @@ namespace Barbearia.Dados.Repositorios
             return calendarios;
         }
 
+        public List<Entidades.Calendario> ListarCalendarioInicial()
+        {
+            StringBuilder vSql = new StringBuilder();
+            List<Entidades.Calendario> calendarios = new List<Entidades.Calendario>();
+
+            vSql.AppendLine("SELECT data, Count(data) AS quantidade FROM agendamentos GROUP BY data");
+
+            OpenConnection();
+
+            var command = Connection.CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = vSql.ToString();
+
+            var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Entidades.Calendario calendario = new Entidades.Calendario();
+                calendario.start = DateTime.Parse(reader["data"].ToString()).ToString("yyyy-MM-dd");
+                calendario.title = reader["quantidade"].ToString();
+
+                calendarios.Add(calendario);
+            }           
+
+            Dispose();
+
+            return calendarios;
+        }
+
 
     }
 }

@@ -189,3 +189,36 @@
     });
 
 })(jQuery);
+
+var ExibirMensagem = function (tipo, titulo, mensagem) {
+    Swal.fire({
+        position: 'center',
+        icon: tipo,
+        title: titulo,
+        html: mensagem,
+        showConfirmButton: true,
+        timer: 5000,
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    });
+}
+
+var ExibirMensagemErroCritico = function (titulo, mensagem) {
+    Swal.fire({
+        position: 'top',
+        icon: 'error',
+        title: titulo,
+        html: mensagem,// + '  <p style="color: red; font-weight: bold; margin-top: 10px;">Favor informar o administrador do sistema mencionando este erro!</p>',
+        showConfirmButton: true,
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown container-swal'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    })
+}

@@ -32,8 +32,13 @@ namespace Barbearia.Dados.Repositorios
             StringBuilder vSql = new StringBuilder();
 
             vSql.AppendLine("INSERT INTO agendamentos(data, hora, situacao)");
+<<<<<<< HEAD
             vSql.AppendFormat("VALUES('{0}', '{1}', {2})", agendamento.DataAgendamento.ToString("yyyy-MM-dd"),
                                                              agendamento.HoraAgendamento,
+=======
+            vSql.AppendFormat("VALUES('{0}', '{1}', {2})", agendamento.DataAgendamento.ToString("yyyy-MM-dd"), 
+                                                             agendamento.HoraAgendamento, 
+>>>>>>> 9133dcbd9e7158210ca7cd74b3f587f78486b1e6
                                                              agendamento.Situacao == true ? 1 : 0);
 
             OpenConnection();
@@ -151,6 +156,7 @@ namespace Barbearia.Dados.Repositorios
 
             vSql.AppendLine("SELECT * FROM agendamentos");
 
+<<<<<<< HEAD
             //OpenConnection();
 
             //var command = Connection.CreateCommand();
@@ -212,12 +218,34 @@ namespace Barbearia.Dados.Repositorios
             calendario.title = "teste";
             calendario.start = "2021-12-20 15:00:00";
             calendarios.Add(calendario);
+=======
+            OpenConnection();
+
+            var command = Connection.CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = vSql.ToString();
+
+            var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Entidades.Calendario calendario = new Entidades.Calendario();
+                calendario.start =  DateTime.Parse(reader["data"].ToString()).ToString("yyyy-MM-dd") + " " + reader["hora"].ConvertObjectToString();
+                calendario.title = "teste";
+
+                calendarios.Add(calendario);
+            }
+>>>>>>> 9133dcbd9e7158210ca7cd74b3f587f78486b1e6
 
             Dispose();
 
             return calendarios;
         }
 
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 9133dcbd9e7158210ca7cd74b3f587f78486b1e6
     }
 }

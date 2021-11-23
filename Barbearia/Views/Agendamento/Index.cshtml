@@ -6,10 +6,10 @@
 }
 
 <link href="~/Content/css/agendamento.css" rel="stylesheet" />
-<div id="calendar" style="margin-top: 50px;"></div>
+<div id="calendar" class="calendar" style="margin-top: 50px;"></div>
 <div id="div-agendamento">
     <div id="div-conteudo-agendar">
-        <form id="frmAgenda" action="Agendamento/Incluir" method="post">
+        <form id="frmAgenda" method="post">
             <div class="row">
                 <input type="hidden" id="hfdIdCliente" name="Id" value="0" />
 
@@ -44,7 +44,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 text-right">
-                    <input type="submit" class="btn btn-primary" value="Confirmar" />
+                    <input type="button" class="btn btn-primary" value="Confirmar" onclick="SalvarAgendamento();" />
                     <input type="button" class="btn btn-warning" onclick="fecharmodalagendamento();" value="Cancelar" />
                 </div>
             </div>

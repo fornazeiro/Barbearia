@@ -1,6 +1,7 @@
 ﻿using Barbearia.Dados.Interfaces;
 using System.Collections.Generic;
 using System.Text;
+using Barbearia.Shared;
 
 namespace Barbearia.Dados.Repositorios
 {
@@ -63,10 +64,10 @@ namespace Barbearia.Dados.Repositorios
             while (reader.Read())
             {
                 Entidades.Usuario usuario = new Entidades.Usuario();
-                usuario.Id = int.Parse(reader["id"].ToString());
-                usuario.Nome = reader["nome"].ToString();
-                usuario.Email = reader["Email"].ToString();
-                usuario.Situacao = bool.Parse(reader["situacao"].ToString());
+                usuario.Id = reader["id"].ConvertObjectToInt();
+                usuario.Nome = reader["nome"].ConvertObjectToString();
+                usuario.Email = reader["Email"].ConvertObjectToString();
+                usuario.Situacao = reader["situacao"].ConvertObjectToBoolean();
 
                 usuarios.Add(usuario);
             }
@@ -96,10 +97,10 @@ namespace Barbearia.Dados.Repositorios
 
             while (reader.Read())
             {
-                usuario.Id = int.Parse(reader["id"].ToString());
-                usuario.Nome = reader["nome"].ToString();
-                usuario.Email = reader["Email"].ToString();
-                usuario.Situacao = bool.Parse(reader["situacao"].ToString());
+                usuario.Id = reader["id"].ConvertObjectToInt();
+                usuario.Nome = reader["nome"].ConvertObjectToString();
+                usuario.Email = reader["Email"].ConvertObjectToString();
+                usuario.Situacao = reader["situacao"].ConvertObjectToBoolean();
             }
 
             Dispose();
@@ -126,10 +127,10 @@ namespace Barbearia.Dados.Repositorios
             while (reader.Read())
             {
                 Entidades.Usuario usuario = new Entidades.Usuario();
-                usuario.Id = int.Parse(reader["id"].ToString());
-                usuario.Nome = reader["nome"].ToString();
-                usuario.Email = reader["Email"].ToString();
-                usuario.Situacao = bool.Parse(reader["situacao"].ToString());
+                usuario.Id = reader["id"].ConvertObjectToInt();
+                usuario.Nome = reader["nome"].ConvertObjectToString();
+                usuario.Email = reader["Email"].ConvertObjectToString();
+                usuario.Situacao = reader["situacao"].ConvertObjectToBoolean();
 
                 usuarios.Add(usuario);
             }

@@ -16,7 +16,10 @@ namespace Barbearia.Controllers.Admin
                 Response.Redirect("/Login");
             }
 
-            return View();
+            Negocios.Agendamento nAgendamento = new Negocios.Agendamento();
+            var agendamentos = nAgendamento.ListarPorDataHora(null);
+
+            return View(agendamentos);
         }
     }
 }

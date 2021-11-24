@@ -46,7 +46,8 @@ namespace Barbearia.Controllers
             }
         }
 
-        private List<Entidades.Agendamento> ListarPorDataHora(Entidades.Agendamento agendamento)
+        [HttpPost]
+        public List<Entidades.Agendamento> ListarPorDataHora(Entidades.Agendamento agendamento)
         {
             Negocios.Agendamento nAgendamento = new Negocios.Agendamento();
 

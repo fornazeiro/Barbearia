@@ -6,26 +6,24 @@
 }
 
 <link href="~/Content/css/agendamento.css" rel="stylesheet" />
-<div id="calendar" class="calendar" style="margin-top: 50px;"></div>
+<div id="div-calendario" style="position: relative;">
+    <div class="row">
+        <div class="col-lg-8">
+            <div id="calendar" class="calendar" style="margin-top: 50px;"></div>
+        </div>
+        <div class="col-lg-4">textes</div>
+    </div>
+</div>
 <div id="div-agendamento">
     <div id="div-conteudo-agendar">
         <h3>Agendamento</h3>
         <form id="frmAgenda" method="post">
-            <div class="row">
-                <input type="hidden" id="hfdIdCliente" name="Id" value="0" />
-
-                <div class="col-lg-12">
-                    <div class="form-group">
-                        <label for="txtEmail">Email</label>
-                        <input type="email" class="form-control" id="txtEmail" name="Email" placeholder="Entre com seu e-mail" required>
-                    </div>
-                </div>
-            </div>
+            <input type="hidden" id="hfdIdCliente" name="Id" value="0" />
             <div class="row">
                 <div class="col-lg-11 col-xs-11">
                     <div class="form-group">
-                        <label for="txtNome">Nome</label>
-                        <input type="text" class="form-control" id="txtNome" name="Nome" placeholder="Entre com seu nome">
+                        <label for="txtEmail">Email</label>
+                        <input type="email" class="form-control" id="txtEmail" name="Email" placeholder="Entre com seu e-mail" required>
                     </div>
                 </div>
                 <div class="col-lg-1 col-xs-1 btn-validar">
@@ -33,16 +31,24 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="txtNome">Nome</label>
+                        <input type="text" class="form-control" id="txtNome" name="Nome" placeholder="Entre com seu nome" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label for="txtData">Data</label>
-                        <input type="text" class="form-control datepicker" id="txtData" name="DataAgendamento">
+                        <input type="text" class="form-control datepicker" id="txtData" name="DataAgendamento" disabled>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label for="txtHora">Hora</label>
-                        <input type="text" class="form-control datepicker" id="txtHora" name="HoraAgendamento">
+                        <input type="text" class="form-control datepicker" id="txtHora" name="HoraAgendamento" disabled>
                     </div>
                 </div>
             </div>

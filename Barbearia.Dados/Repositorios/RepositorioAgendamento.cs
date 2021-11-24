@@ -108,34 +108,65 @@ namespace Barbearia.Dados.Repositorios
             return agendamento;
         }
 
-        public List<Agendamento> ListarPorDataHora(Entidades.Agendamento agendamento)
+        public List<Agendamento> ListarPorDataHora(Entidades.Agendamento agendamento = null)
         {
             StringBuilder vSql = new StringBuilder();
             List<Entidades.Agendamento> agendamentos = new List<Entidades.Agendamento>();
 
-            vSql.AppendLine("SELECT * FROM agendamentos");
-            vSql.AppendFormat("WHERE data = '{0}' AND hora = '{1}'", agendamento.DataAgendamento.ToString("yyyy-MM-dd"), agendamento.HoraAgendamento);
+            //vSql.AppendLine("SELECT * FROM agendamentos");
 
-            OpenConnection();
+            //if (agendamento != null)
+            //{
+            //    if (!string.IsNullOrEmpty(agendamento.HoraAgendamento))
+            //        vSql.AppendFormat(" WHERE data = '{0}'", agendamento.DataAgendamento.ToString("yyyy-MM-dd"));
 
-            var command = Connection.CreateCommand();
-            command.CommandType = System.Data.CommandType.Text;
-            command.CommandText = vSql.ToString();
+            //    if (!string.IsNullOrEmpty(agendamento.HoraAgendamento))
+            //        vSql.AppendFormat(" AND data = '{0}'", agendamento.HoraAgendamento);
+            //}
 
-            var reader = command.ExecuteReader();
+            //vSql.AppendLine(" ORDER BY HORA");
 
-            while (reader.Read())
-            {
-                agendamento = new Entidades.Agendamento();
-                agendamento.Id = reader["id"].ConvertObjectToInt();
-                agendamento.DataAgendamento = reader["data"].ConvertObjectToDateTime();
-                agendamento.HoraAgendamento = reader["hora"].ConvertObjectToString();
-                agendamento.Situacao = reader["situacao"].ConvertObjectToBoolean();
+            //OpenConnection();
 
-                agendamentos.Add(agendamento);
-            }
+            agendamento = new Entidades.Agendamento();
+            agendamento.DataAgendamento = Convert.ToDateTime("2021-11-10");
+            agendamento.HoraAgendamento = "08:00";
+            agendamento.Situacao =true;
+            agendamento.IdCliente = 2;
+            agendamentos.Add(agendamento);
 
-            Dispose();
+            agendamento = new Entidades.Agendamento();
+            agendamento.DataAgendamento = Convert.ToDateTime("2021-11-11");
+            agendamento.HoraAgendamento = "08:00";
+            agendamento.Situacao = true;
+            agendamento.IdCliente = 2;
+            agendamentos.Add(agendamento);
+
+            agendamento = new Entidades.Agendamento();
+            agendamento.DataAgendamento = Convert.ToDateTime("2021-11-12");
+            agendamento.HoraAgendamento = "08:00";
+            agendamento.Situacao = true;
+            agendamento.IdCliente = 2;
+            agendamentos.Add(agendamento);
+
+            //var command = Connection.CreateCommand();
+            //command.CommandType = System.Data.CommandType.Text;
+            //command.CommandText = vSql.ToString();
+
+            //var reader = command.ExecuteReader();
+
+            //while (reader.Read())
+            //{
+            //    agendamento = new Entidades.Agendamento();
+            //    agendamento.Id = reader["id"].ConvertObjectToInt();
+            //    agendamento.DataAgendamento = reader["data"].ConvertObjectToDateTime();
+            //    agendamento.HoraAgendamento = reader["hora"].ConvertObjectToString();
+            //    agendamento.Situacao = reader["situacao"].ConvertObjectToBoolean();
+
+            //    agendamentos.Add(agendamento);
+            //}
+
+            //Dispose();
 
             return agendamentos;
         }

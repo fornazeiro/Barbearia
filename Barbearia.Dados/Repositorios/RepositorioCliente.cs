@@ -100,8 +100,6 @@ namespace Barbearia.Dados.Repositorios
             cliente.Nome = "Nelson Aparecido Fornazeiro";
             cliente.Id = 2;
 
-            cliente = new Cliente(); ;
-
             //while (reader.Read())
             //{
             //    cliente.Id = reader["id"].ConvertObjectToInt();

@@ -10,7 +10,8 @@
         },
         eventClick: function (info) {
             $('#txtData').val(moment(info.event.start).format('DD/MM/YYYY'));
-            $('#div-agendamento').show();
+            //$('#div-agendamento').show();
+            ListarAgendamentos(info.event.start);
         },
         events: {
             url: 'Agendamento/ListarCalendario',
@@ -33,7 +34,6 @@
 });
 
 var validarCliente = function (email) {
-
     if (validateEmail(email)) {
         $.ajax({
             dataType: 'json',
@@ -44,6 +44,7 @@ var validarCliente = function (email) {
                 if (result != null && result.Nome != null) {
                     $('#txtNome').val(result.Nome);
                     $('#hfdIdCliente').val(result.Id);
+                    $('#txtHora').removeAttr('disabled').focus();
                 }
                 else {                    
                     ExibirMensagem('warning', 'Aviso', 'Cliente não encontrado!');
@@ -129,32 +130,6 @@ var SalvarCliente = function () {
     });
 }
 
-function ListarAgendamentos() {
-    // ExibirLoader();
-
-    $.ajax({
-        dataType: "json",
-        type: "POST",
-        url: "Agendamento/ListarCalendario",
-        cache: false,
-        success: function (data, textStatus, xhr) {
-            debugger;
-            let dados = JSON.stringify(data);
-            return dados;
-        },
-        complete: function () {
-
-        },
-        error: function (request, status, error) {
-            let dom_nodes = $($.parseHTML(request.responseText));
-            ExibirMensagemErroCritico('Operação não realizada', dom_nodes.filter('title').text());
-            //OcultarLoader();
-        }
-    }).then(function () {
-        //OcultarLoader();
-    });
-}
-
 
 var SalvarAgendamento = function () {
     let modal = '#div-agendamento';
@@ -191,18 +166,20 @@ var SalvarAgendamento = function () {
     });
 }
 
-function ListarAgendamentos() {
-    // ExibirLoader();
+function ListarAgendamentos(dia) {
+
+    var agendamento = {};
+    agendamento.DataAgendamento = "2021-11-13";   
 
     $.ajax({
-        dataType: "json",
+        dataType: 'json',
         type: "POST",
-        url: "Agendamento/ListarCalendario",
+        url: "Agendamento/ListarPorDataHora",
         cache: false,
+        data: { agendamento },
         success: function (data, textStatus, xhr) {
             debugger;
-            let dados = JSON.stringify(data);
-            return dados;
+            
         },
         complete: function () {
 

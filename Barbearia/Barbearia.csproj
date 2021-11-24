@@ -376,6 +376,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\admAgendamentos.js" />
     <Content Include="Scripts\agenda.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -397,6 +398,7 @@
     <Content Include="Content\calendar\Edit.cshtml" />
     <Content Include="Content\calendar\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\calendar-format.js" />
     <Content Include="Scripts\common.js" />
     <Content Include="Scripts\datepicker-pt-BR.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

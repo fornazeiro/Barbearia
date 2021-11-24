@@ -1,4 +1,5 @@
 ﻿using Barbearia.Dados.Interfaces;
+using Barbearia.Entidades;
 using Barbearia.Shared;
 using System.Collections.Generic;
 using System.Text;
@@ -77,6 +78,42 @@ namespace Barbearia.Dados.Repositorios
             Dispose();
 
             return clientes;
+        }
+
+        public Cliente ListarPorEmail(string email)
+        {
+            //StringBuilder vSql = new StringBuilder();
+            //List<Entidades.Cliente> clientes = new List<Entidades.Cliente>();
+
+            //vSql.AppendLine("SELECT * FROM clientes");
+            //vSql.AppendFormat("WHERE email = '{0}'", email);
+
+            //OpenConnection();
+
+            //var command = Connection.CreateCommand();
+            //command.CommandType = System.Data.CommandType.Text;
+            //command.CommandText = vSql.ToString();
+
+            //var reader = command.ExecuteReader();
+
+            Entidades.Cliente cliente = new Entidades.Cliente();
+            cliente.Nome = "Nelson Aparecido Fornazeiro";
+            cliente.Id = 2;
+
+            cliente = new Cliente(); ;
+
+            //while (reader.Read())
+            //{
+            //    cliente.Id = reader["id"].ConvertObjectToInt();
+            //    cliente.Nome = reader["nome"].ConvertObjectToString();
+            //    cliente.Email = reader["email"].ConvertObjectToString();
+            //    cliente.DataNascimento = reader["datanascimento"].ConvertObjectToDateTime();
+            //    cliente.Situacao = reader["situacao"].ConvertObjectToBoolean();
+            //}
+
+            Dispose();
+
+            return cliente;
         }
 
         public Entidades.Cliente ListarPorId(int id)

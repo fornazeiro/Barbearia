@@ -152,6 +152,48 @@ namespace Barbearia.Dados.Repositorios
 
             vSql.AppendLine("SELECT * FROM agendamentos");
 
+            Entidades.Calendario calendario = new Entidades.Calendario();
+            calendario.start = "2021-11-10";
+            calendario.title = "5";
+            calendario.color = "black";
+            calendarios.Add(calendario);
+
+            calendario = new Entidades.Calendario();
+            calendario.start = "2021-11-12";
+            calendario.title = "7";
+            calendario.color = "black";
+            calendarios.Add(calendario);
+
+            calendario = new Entidades.Calendario();
+            calendario.start = "2021-11-15";
+            calendario.title = "9";
+            calendario.color = "black";
+            calendarios.Add(calendario);
+
+            calendario = new Entidades.Calendario();
+            calendario.start = "2021-11-16";
+            calendario.title = "3";
+            calendario.color = "black";
+            calendarios.Add(calendario);
+
+            calendario = new Entidades.Calendario();
+            calendario.start = "2021-11-13";
+            calendario.title = "2";
+            calendario.color = "black";
+            calendarios.Add(calendario);
+
+            calendario = new Entidades.Calendario();
+            calendario.start = "2021-11-14";
+            calendario.title = "1";
+            calendario.color = "black";
+            calendarios.Add(calendario);
+
+            calendario = new Entidades.Calendario();
+            calendario.start = "2021-12-10";
+            calendario.title = "5";
+            calendario.color = "black";
+            calendarios.Add(calendario);
+
             //OpenConnection();
 
             //var command = Connection.CreateCommand();
@@ -169,7 +211,7 @@ namespace Barbearia.Dados.Repositorios
             //    calendarios.Add(calendario);
             //}
 
-            Entidades.Calendario calendario = new Entidades.Calendario();
+            /*Entidades.Calendario calendario = new Entidades.Calendario();
             calendario.title = "Nelson";
             calendario.start = "2021-11-10T08:00:00";
             calendarios.Add(calendario);
@@ -212,7 +254,7 @@ namespace Barbearia.Dados.Repositorios
             calendario = new Entidades.Calendario();
             calendario.title = "Aline";
             calendario.start = "2021-12-20 15:00:00";
-            calendarios.Add(calendario);
+            calendarios.Add(calendario);*/
 
             //var ListarCalendarios = calendarios.Select(x => x.start).Distinct().ToList();
 

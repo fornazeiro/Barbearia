@@ -36,7 +36,14 @@ namespace Barbearia.Negocios
         {
             Dados.Repositorios.RepositorioCliente rCliente = new Dados.Repositorios.RepositorioCliente();
 
-            return rCliente .ListarPorNome(nome);
+            return rCliente.ListarPorNome(nome);
+        }
+
+        public Entidades.Cliente ListarPorEmail(string email)
+        {
+            Dados.Repositorios.RepositorioCliente rCliente = new Dados.Repositorios.RepositorioCliente();
+
+            return rCliente.ListarPorEmail(email);
         }
     }
 }

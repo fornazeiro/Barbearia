@@ -10,8 +10,8 @@ namespace Barbearia.Entidades
     {
         public Calendario()
         {
-            color = "red";
-            backgroundColor = "yellow";
+            color = "transparent";
+            backgroundColor = "transparent";
         }
 
         public string start { get; set; }

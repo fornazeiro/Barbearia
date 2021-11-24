@@ -16,6 +16,7 @@ namespace Barbearia.Controllers
             return View();
         }
 
+        [HttpPost]
         public JsonResult Incluir(Entidades.Cliente cliente)
         {
             Negocios.Cliente nCliente = new Negocios.Cliente();
@@ -24,12 +25,12 @@ namespace Barbearia.Controllers
             {
                 nCliente.Incuir(cliente);
 
-                return null;
+                return Json("Cliente salvo com sucesso!", JsonRequestBehavior.AllowGet);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }            
         }
 
@@ -76,6 +77,31 @@ namespace Barbearia.Controllers
                 nCliente.ListarPorNome(nome);
 
                 return null;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpPost]
+        public JsonResult ListarPorEmail(string email)
+        {
+            Negocios.Cliente nCliente = new Negocios.Cliente();
+
+            try
+            {
+                var cliente = nCliente.ListarPorEmail(email);
+
+                if (cliente == null)
+                {
+                    return Json("Cliente não encontrado!", JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(cliente, JsonRequestBehavior.AllowGet);
+                }
             }
             catch (Exception)
             {

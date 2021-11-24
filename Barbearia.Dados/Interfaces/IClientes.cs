@@ -9,5 +9,6 @@ namespace Barbearia.Dados.Interfaces
 {
     public interface IClientes : IBase<Cliente>
     {
+        Entidades.Cliente ListarPorEmail(string email);
     }
 }

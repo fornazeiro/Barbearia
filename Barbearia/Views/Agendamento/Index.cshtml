@@ -1,4 +1,4 @@
-﻿@model Barbearia.Entidades.Agendamento
+﻿@model Barbearia.Entidades.Cliente
 
 @{
     ViewBag.Title = "Index";
@@ -9,6 +9,7 @@
 <div id="calendar" class="calendar" style="margin-top: 50px;"></div>
 <div id="div-agendamento">
     <div id="div-conteudo-agendar">
+        <h3>Agendamento</h3>
         <form id="frmAgenda" method="post">
             <div class="row">
                 <input type="hidden" id="hfdIdCliente" name="Id" value="0" />
@@ -16,16 +17,19 @@
                 <div class="col-lg-12">
                     <div class="form-group">
                         <label for="txtEmail">Email</label>
-                        <input type="email" class="form-control" id="txtEmail" name="Email" placeholder="Entre com seu e-mail">
+                        <input type="email" class="form-control" id="txtEmail" name="Email" placeholder="Entre com seu e-mail" required>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-11 col-xs-11">
                     <div class="form-group">
                         <label for="txtNome">Nome</label>
                         <input type="text" class="form-control" id="txtNome" name="Nome" placeholder="Entre com seu nome">
                     </div>
+                </div>
+                <div class="col-lg-1 col-xs-1 btn-validar">
+                    <span class="btn btn-xs btn-default" id="btnValidarCliente" onclick="validarCliente($('#txtEmail').val());"><i class="fa fa-check-circle"></i></span>
                 </div>
             </div>
             <div class="row">
@@ -51,4 +55,51 @@
         </form>
     </div>
 </div>
+<div id="div-cliente">
+    <form id="frmCliente">
+        <div id="div-conteudo-cliente">
+            <h3>Cadastro de Clientes</h3>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="txtEmail">E-mail</label>
+                        <input type="email" class="form-control" id="txtEmail" name="Email" placeholder="Entre com seu e-mail">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="txtNome">Nome</label>
+                        <input type="text" class="form-control" id="txtNome" name="Nome" placeholder="Entre com seu nome">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="txtTelefone">Telefone</label>
+                        <input type="text" class="form-control" id="txtTelefone" name="Telefone">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="txtTelefone">Data Nascimento</label>
+                        <input type="text" class="form-control" id="txtDataNascimento" name="DataNascimento">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-right">
+                    <input type="button" class="btn btn-primary" value="Confirmar" onclick="SalvarCliente();" />
+                    <input type="button" class="btn btn-warning" onclick="fecharmodalcliente();" value="Cancelar" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 <script src="~/Scripts/agenda.js"></script>
+
+<script>
+    $('.aagendamento').addClass('active');
+</script>

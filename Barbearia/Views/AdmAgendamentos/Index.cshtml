@@ -36,16 +36,23 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.HoraAgendamento)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Situacao)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>
-            </tr>
-        }
+                @if (item.Situacao == true)
+                {
+                    <td>"Ativo"</td>
+                }
+                else
+                {
+                    <td>"Inativo"</td>
+                }
+                @*<td>
+                        <input type="button" class="btn btn-warning" value="Editar" onclick=""/>
+                        <input type="button" class="btn btn-danger" value="Excluir" />
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>*@
+                </tr >
+            }
 
-    </table>
+</table>
 </div>

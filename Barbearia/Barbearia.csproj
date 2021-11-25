@@ -436,6 +436,9 @@
     <Content Include="Views\AdmUsuarios\Index.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
     <Content Include="Views\Agendamento\_Agendamentos.cshtml" />
+    <Content Include="Views\AdmUsuarios\AdmUsuarios.cshtml" />
+    <Content Include="Views\AdmUsuarios\CreateUser.cshtml" />
+    <Content Include="Views\AdmUsuarios\EditUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

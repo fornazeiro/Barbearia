@@ -239,6 +239,16 @@ var fecharmodalagendamento = () => {
     $('#div-agendamento').on(600).fadeOut("slow");
 }
 
+var abrirmodalagendamento = () => {
+    $('#txtEmail').val('');
+    $('#txtNome').val('');
+    $('#txtData').val('');
+    $('#txtHora').val('');
+
+    $('#div-agendamento').on(600).fadeIn("slow");
+}
+
+
 function validateEmail(email) {
     var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
     if (reg.test(email)) {

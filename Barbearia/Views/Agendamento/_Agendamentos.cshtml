@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Barbearia.Entidades.Agendamento>
+
+    @if (@Model != null && Model.Count() > 0)
+    {
+        foreach (var item in Model)
+        {
+            <div class="row">
+                <ul class="nav">
+                    <li class="col-lg-12 col-xs-12"><strong>@item.Cliente.Nome</strong></li>
+                    <li class="col-lg-12 col-xs-12">@item.DataAgendamento.ToString("dd/MM/yyyy")</li>
+                    <li class="col-lg-12 col-xs-12">@item.HoraAgendamento</li>
+                </ul>
+            </div>
+        }
+    }

@@ -132,7 +132,8 @@ namespace Barbearia.Dados.Repositorios
             agendamento.DataAgendamento = Convert.ToDateTime("2021-11-10");
             agendamento.HoraAgendamento = "08:00";
             agendamento.Situacao =true;
-            agendamento.IdCliente = 2;
+            agendamento.IdCliente = 1;
+            agendamento.Cliente.Nome = "Nelson Fornazeiro";
             agendamentos.Add(agendamento);
 
             agendamento = new Entidades.Agendamento();
@@ -140,13 +141,61 @@ namespace Barbearia.Dados.Repositorios
             agendamento.HoraAgendamento = "08:00";
             agendamento.Situacao = true;
             agendamento.IdCliente = 2;
+            agendamento.Cliente.Nome = "Daniel Fornazeiro";
+
             agendamentos.Add(agendamento);
 
             agendamento = new Entidades.Agendamento();
             agendamento.DataAgendamento = Convert.ToDateTime("2021-11-12");
             agendamento.HoraAgendamento = "08:00";
             agendamento.Situacao = true;
+            agendamento.IdCliente = 3;
+            agendamento.Cliente.Nome = "Felipe Fornazeiro";
+
+            agendamentos.Add(agendamento);
+
+            agendamento = new Entidades.Agendamento();
+            agendamento.DataAgendamento = Convert.ToDateTime("2021-11-12");
+            agendamento.HoraAgendamento = "08:00";
+            agendamento.Situacao = true;
+            agendamento.IdCliente = 4;
+            agendamento.Cliente.Nome = "Marcos Fornazeiro";
+
+            agendamentos.Add(agendamento);
+
+            agendamento = new Entidades.Agendamento();
+            agendamento.DataAgendamento = Convert.ToDateTime("2021-11-13");
+            agendamento.HoraAgendamento = "08:00";
+            agendamento.Situacao = true;
+            agendamento.IdCliente = 1;
+            agendamento.Cliente.Nome = "Nelson Fornazeiro";
+            agendamentos.Add(agendamento);
+
+            agendamento = new Entidades.Agendamento();
+            agendamento.DataAgendamento = Convert.ToDateTime("2021-11-14");
+            agendamento.HoraAgendamento = "08:00";
+            agendamento.Situacao = true;
             agendamento.IdCliente = 2;
+            agendamento.Cliente.Nome = "Daniel Fornazeiro";
+
+            agendamentos.Add(agendamento);
+
+            agendamento = new Entidades.Agendamento();
+            agendamento.DataAgendamento = Convert.ToDateTime("2021-11-15");
+            agendamento.HoraAgendamento = "08:00";
+            agendamento.Situacao = true;
+            agendamento.IdCliente = 3;
+            agendamento.Cliente.Nome = "Felipe Fornazeiro";
+
+            agendamentos.Add(agendamento);
+
+            agendamento = new Entidades.Agendamento();
+            agendamento.DataAgendamento = Convert.ToDateTime("2021-11-16");
+            agendamento.HoraAgendamento = "08:00";
+            agendamento.Situacao = true;
+            agendamento.IdCliente = 4;
+            agendamento.Cliente.Nome = "Marcos Fornazeiro";
+
             agendamentos.Add(agendamento);
 
             //var command = Connection.CreateCommand();

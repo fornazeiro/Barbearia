@@ -70,8 +70,27 @@
     font-size: 1.5em;
 }
 
-@media (max-width: 980px)
-{
+.agendamento {
+    max-width: 892px;
+}
+
+#div-conteudo-agendamento {
+    position: relative;
+    max-height: 535px;
+    max-width: 400px;
+}
+
+.lista-agendamento {
+    position: relative;
+    overflow-y:scroll;
+    height: 400px;
+    margin-top: 140px;
+    left: 45px;
+    height: 555px;
+    max-width: 375px;
+}
+
+@media (max-width: 980px) {
     #calendar {
         position: absolute;
         padding: 5px;
@@ -92,6 +111,11 @@
         height: 410px;
         top: 50%;
         margin-top: -205px;
+    }
+
+    .lista-agendamento {
+        margin-top: 0px;
+        left: 0;
     }
 }
 

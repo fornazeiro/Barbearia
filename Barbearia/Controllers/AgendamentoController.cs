@@ -80,5 +80,14 @@ namespace Barbearia.Controllers
 
             return Json(agendamentos, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult ListarHoras()
+        {
+            Negocios.Hora nHora = new Negocios.Hora();
+
+            var horas = nHora.ListarHoras();
+
+            return Json(horas, JsonRequestBehavior.AllowGet);
+        }
     }
 }

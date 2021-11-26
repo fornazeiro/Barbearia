@@ -197,6 +197,7 @@
     <Content Include="Content\css\prettyPhoto.css" />
     <Content Include="Content\css\responsive.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\usuario.css" />
     <Content Include="Content\css\versions.css" />
     <Content Include="Content\fonts\Flaticon.svg" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
@@ -437,9 +438,8 @@
     <Content Include="Views\Clientes\Index.cshtml" />
     <Content Include="Views\Agendamento\_Agendamentos.cshtml" />
     <Content Include="Views\AdmUsuarios\AdmUsuarios.cshtml" />
-    <Content Include="Views\AdmUsuarios\Create.cshtml" />
-    <Content Include="Views\AdmUsuarios\Edit.cshtml" />
     <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\AdmUsuarios\_Usuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

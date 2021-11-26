@@ -16,6 +16,9 @@ namespace Barbearia.Controllers
             //     Incluir(agendamento);
             // }
 
+            ViewBag.Horas = ListarHoras();
+
+
             return View();
         }
 
@@ -81,13 +84,13 @@ namespace Barbearia.Controllers
             return Json(agendamentos, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult ListarHoras()
+        public List<Entidades.Horas> ListarHoras()
         {
             Negocios.Hora nHora = new Negocios.Hora();
 
-            var horas = nHora.ListarHoras();
+            var horas = nHora.ListarHoras(null);
 
-            return Json(horas, JsonRequestBehavior.AllowGet);
+            return horas;
         }
     }
 }

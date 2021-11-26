@@ -72,6 +72,9 @@ namespace Barbearia.Dados.Repositorios
                 agendamentos.Add(agendamento);
             }
 
+            reader.Close();
+            reader.Dispose();
+
             Dispose();
 
             return agendamentos;
@@ -102,6 +105,9 @@ namespace Barbearia.Dados.Repositorios
                 agendamento.HoraAgendamento = reader["hora"].ConvertObjectToString();
                 agendamento.Situacao = reader["situacao"].ConvertObjectToBoolean();
             }
+
+            reader.Close();
+            reader.Dispose();
 
             Dispose();
 
@@ -214,6 +220,9 @@ namespace Barbearia.Dados.Repositorios
 
             //    agendamentos.Add(agendamento);
             //}
+
+            //reader.Close();
+            //reader.Dispose();
 
             //Dispose();
 
@@ -343,7 +352,10 @@ namespace Barbearia.Dados.Repositorios
 
             //}
 
-            Dispose();
+            //reader.Close();
+            //reader.Dispose();
+
+            //Dispose();
 
             return calendarios;
         }
@@ -370,7 +382,10 @@ namespace Barbearia.Dados.Repositorios
                 calendario.title = reader["quantidade"].ToString();
 
                 calendarios.Add(calendario);
-            }           
+            }
+
+            reader.Close();
+            reader.Dispose();
 
             Dispose();
 

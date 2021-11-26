@@ -8,6 +8,6 @@ namespace Barbearia.Dados.Interfaces
 {
     public interface IRepositorioHora
     {
-        List<Entidades.Horas> ListarHoras(DateTime data);
+        List<Entidades.Horas> ListarHoras(string data);
     }
 }

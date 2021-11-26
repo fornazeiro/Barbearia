@@ -75,6 +75,9 @@ namespace Barbearia.Dados.Repositorios
                 clientes.Add(cliente);
             }
 
+            reader.Close();
+            reader.Dispose();
+
             Dispose();
 
             return clientes;
@@ -109,6 +112,9 @@ namespace Barbearia.Dados.Repositorios
             //    cliente.Situacao = reader["situacao"].ConvertObjectToBoolean();
             //}
 
+            //reader.Close();
+            //reader.Dispose();
+
             Dispose();
 
             return cliente;
@@ -140,6 +146,9 @@ namespace Barbearia.Dados.Repositorios
                 cliente.DataNascimento = reader["datanascimento"].ConvertObjectToDateTime();
                 cliente.Situacao = reader["situacao"].ConvertObjectToBoolean();
             }
+
+            reader.Close();
+            reader.Dispose();
 
             Dispose();
 
@@ -173,6 +182,9 @@ namespace Barbearia.Dados.Repositorios
 
                 clientes.Add(cliente);
             }
+
+            reader.Close();
+            reader.Dispose();
 
             Dispose();
 

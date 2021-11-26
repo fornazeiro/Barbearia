@@ -72,6 +72,9 @@ namespace Barbearia.Dados.Repositorios
                 usuarios.Add(usuario);
             }
 
+            reader.Close();
+            reader.Dispose();
+
             Dispose();
 
             return usuarios;
@@ -102,6 +105,9 @@ namespace Barbearia.Dados.Repositorios
                 usuario.Email = reader["Email"].ConvertObjectToString();
                 usuario.Situacao = reader["situacao"].ConvertObjectToBoolean();
             }
+
+            reader.Close();
+            reader.Dispose();
 
             Dispose();
 
@@ -134,6 +140,9 @@ namespace Barbearia.Dados.Repositorios
 
                 usuarios.Add(usuario);
             }
+
+            reader.Close();
+            reader.Dispose();
 
             Dispose();
 

@@ -12,7 +12,9 @@ namespace Barbearia.Dados.Repositorios
         {
             StringBuilder vSql = new StringBuilder();
 
-            vSql.AppendFormat("SELECT * FROM horas");
+            vSql.AppendLine("SELECT hora FROM horas h");
+            vSql.AppendFormat("WHERE hora NOT IN (SELECT hora FROM agendamentos WHERE data = '{0}')", data);
+
 
             //OpenConnection();
 

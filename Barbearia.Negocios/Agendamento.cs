@@ -5,11 +5,18 @@ namespace Barbearia.Negocios
 {
     public class Agendamento
     {
-        public void Excuir(int id)
+        public void Excluir(int id)
         {
             Dados.Repositorios.RepositorioAgendamento rAgendamento = new Dados.Repositorios.RepositorioAgendamento();
 
-            rAgendamento.Excuir(id);
+            rAgendamento.Excluir(id);
+        }
+
+        public void Editar(Entidades.Agendamento agendamento)
+        {
+            Dados.Repositorios.RepositorioAgendamento rAgendamento = new Dados.Repositorios.RepositorioAgendamento();
+
+            rAgendamento.Editar(agendamento);
         }
 
         public void Incluir(Entidades.Agendamento agendamento)

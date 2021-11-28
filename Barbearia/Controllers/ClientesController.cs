@@ -23,6 +23,7 @@ namespace Barbearia.Controllers
 
             try
             {
+                cliente.Situacao = true;
                 nCliente.Incuir(cliente);
 
                 return Json("Cliente salvo com sucesso!", JsonRequestBehavior.AllowGet);

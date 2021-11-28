@@ -435,6 +435,8 @@
     <Content Include="Views\Agendamento\Index.cshtml" />
     <Content Include="Views\AdmUsuarios\Index.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Agendamento\_Agendamentos.cshtml" />
+    <Content Include="Views\AdmAgendamentos\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

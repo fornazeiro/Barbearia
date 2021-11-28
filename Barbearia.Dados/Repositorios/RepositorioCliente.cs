@@ -8,7 +8,7 @@ namespace Barbearia.Dados.Repositorios
 {
     public class RepositorioCliente : RepositorioBase, IClientes
     {
-        public void Excuir(int id)
+        public void Excluir(int id)
         {
             StringBuilder vSql = new StringBuilder();
 
@@ -31,11 +31,11 @@ namespace Barbearia.Dados.Repositorios
             StringBuilder vSql = new StringBuilder();
 
             vSql.AppendLine("INSERT INTO clientes(nome, datanascimento, email, telefone, situacao)");
-            vSql.AppendFormat("VALUES '{0}', '{1}', '{2}', '{3}', '{4}'", cliente.Nome, 
+            vSql.AppendFormat("VALUES('{0}', '{1}', '{2}', '{3}', {4})", cliente.Nome, 
                                                                           cliente.DataNascimento.ToString("yyyy-MM-dd"),
                                                                           cliente.Email,
                                                                           cliente.Telefone,
-                                                                          cliente.Situacao);
+                                                                          cliente.Situacao == true ? 1 : 0);
 
             OpenConnection();
 
@@ -82,32 +82,30 @@ namespace Barbearia.Dados.Repositorios
 
         public Cliente ListarPorEmail(string email)
         {
-            //StringBuilder vSql = new StringBuilder();
-            //List<Entidades.Cliente> clientes = new List<Entidades.Cliente>();
+            StringBuilder vSql = new StringBuilder();
+            List<Entidades.Cliente> clientes = new List<Entidades.Cliente>();
 
-            //vSql.AppendLine("SELECT * FROM clientes");
-            //vSql.AppendFormat("WHERE email = '{0}'", email);
+            vSql.AppendLine("SELECT * FROM clientes");
+            vSql.AppendFormat("WHERE email = '{0}'", email);
 
-            //OpenConnection();
+            OpenConnection();
 
-            //var command = Connection.CreateCommand();
-            //command.CommandType = System.Data.CommandType.Text;
-            //command.CommandText = vSql.ToString();
+            var command = Connection.CreateCommand();
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = vSql.ToString();
 
-            //var reader = command.ExecuteReader();
+            var reader = command.ExecuteReader();
 
             Entidades.Cliente cliente = new Entidades.Cliente();
-            cliente.Nome = "Nelson Aparecido Fornazeiro";
-            cliente.Id = 2;
 
-            //while (reader.Read())
-            //{
-            //    cliente.Id = reader["id"].ConvertObjectToInt();
-            //    cliente.Nome = reader["nome"].ConvertObjectToString();
-            //    cliente.Email = reader["email"].ConvertObjectToString();
-            //    cliente.DataNascimento = reader["datanascimento"].ConvertObjectToDateTime();
-            //    cliente.Situacao = reader["situacao"].ConvertObjectToBoolean();
-            //}
+            while (reader.Read())
+            {
+                cliente.Id = reader["id"].ConvertObjectToInt();
+                cliente.Nome = reader["nome"].ConvertObjectToString();
+                cliente.Email = reader["email"].ConvertObjectToString();
+                cliente.DataNascimento = reader["datanascimento"].ConvertObjectToDateTime();
+                cliente.Situacao = reader["situacao"].ConvertObjectToBoolean();
+            }
 
             Dispose();
 

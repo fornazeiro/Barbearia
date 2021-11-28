@@ -6,12 +6,11 @@
         locale: 'pt-br',
         dateClick: function (info) {
             $('#txtData').val(moment(info.dateStr).format('DD/MM/YYYY'));
-            $('#div-agendamento').show();
+            $('#div-agendamento').on(600).fadeIn("slow");
         },
         eventClick: function (info) {
             $('#txtData').val(moment(info.event.start).format('DD/MM/YYYY'));
-            //$('#div-agendamento').show();
-            ListarAgendamentos(info.event.start);
+            ListarPorData(info.event.start);
         },
         events: {
             url: 'Agendamento/ListarCalendario',
@@ -30,8 +29,49 @@
         }
     });
     calendar.render();
-
+    ListarPorData();
 });
+
+var ListarPorData = (dia) => {
+    debugger;
+    $("#preloader").on(500).fadeIn();
+    $(".preloader").on(600).fadeIn("slow");
+    let dataAtual;
+    let dataFormatada;
+    let data = new Date(dia);
+
+    if (dia != undefined) {
+        data = dia;
+    }
+    else {
+        data = new Date();
+    }
+
+    dataFormatada = data.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+    dataAtual = dataFormatada;
+
+
+    $.ajax({
+        dataType: 'html',
+        type: "GET",
+        url: "Agendamento/ListarPorData",
+        data: { data: dataAtual },
+        success: function (result) {
+            if (result) {
+                $('#div-conteudo-agendamento').html(result);
+            }
+        },
+        complete: function () {
+            $("#preloader").on(500).fadeOut();
+            $(".preloader").on(600).fadeOut("slow");
+        },
+        error: function (request, status, error) {
+            let dom_nodes = $($.parseHTML(request.responseText));
+            ExibirMensagemErroCritico('Operação não realizada', dom_nodes.filter('title').text());
+            //OcultarLoader();
+        }
+    });
+}
 
 var validarCliente = function (email) {
     if (validateEmail(email)) {
@@ -44,14 +84,18 @@ var validarCliente = function (email) {
                 if (result != null && result.Nome != null) {
                     $('#txtNome').val(result.Nome);
                     $('#hfdIdCliente').val(result.Id);
+                    $('#txtData').removeAttr('disabled').focus();
                     $('#txtHora').removeAttr('disabled').focus();
                 }
-                else {                    
-                    ExibirMensagem('warning', 'Aviso', 'Cliente não encontrado!');
+                else {
+                    ExibirMensagem('warning', 'Aviso', 'Cliente não encontrado! <br /> É necessário fazer um cadastro.');
+                    $('#txtEmailCliente').val($('#txtEmail').val());
+                    $('#div-cliente').on(600).fadeIn("slow");
+                    
                 }
             },
             complete: function () {
-                //ListarClientes(1);
+                
             },
             error: function (request, status, error) {
                 let dom_nodes = $($.parseHTML(request.responseText));
@@ -65,6 +109,8 @@ var validarCliente = function (email) {
 }
 
 var SalvarAgendamento = function () {
+    $("#preloader").on(500).fadeIn();
+    $(".preloader").on(600).fadeIn("slow");
     let modal = '#div-agendamento';
 
     //ExibirLoader();
@@ -82,11 +128,13 @@ var SalvarAgendamento = function () {
         processData: false,
         data: agendamento,
         success: function (result) {
-            if (result)
+            if (result) {
                 ExibirMensagem('success', 'Sucesso', 'Dados salvos com sucesso!')
+            }
         },
         complete: function () {
-            //ListarClientes(1);
+            $("#preloader").on(500).fadeOut();
+            $(".preloader").on(600).fadeOut("slow");
         },
         error: function (request, status, error) {
             let dom_nodes = $($.parseHTML(request.responseText));
@@ -94,12 +142,14 @@ var SalvarAgendamento = function () {
             //OcultarLoader();
         }
     }).then(function () {
-        //FecharModal(modal);
-        //OcultarLoader();
+        $("#preloader").on(500).fadeOut();
+        $(".preloader").on(600).fadeOut("slow");
     });
 }
 
 var SalvarCliente = function () {
+    $("#preloader").on(500).fadeIn();
+    $(".preloader").on(600).fadeIn("slow");
     let modal = '#div-cliente';
 
     //ExibirLoader();
@@ -119,70 +169,79 @@ var SalvarCliente = function () {
                 ExibirMensagem('success', 'Sucesso', 'Dados salvos com sucesso!')
         },
         complete: function () {
-            //ListarClientes(1);
+            $('#div-cliente').on(600).fadeOut("slow");
+            $("#preloader").on(500).fadeOut();
+            $(".preloader").on(600).fadeOut("slow");
         },
         error: function (request, status, error) {
             let dom_nodes = $($.parseHTML(request.responseText));
             ExibirMensagemErroCritico('Operação não realizada', dom_nodes.filter('title').text());
         }
     }).then(function () {
-        //OcultarLoader();
+        $("#preloader").on(500).fadeOut();
+        $(".preloader").on(600).fadeOut("slow");
     });
 }
 
 
-var SalvarAgendamento = function () {
-    let modal = '#div-agendamento';
+//var SalvarAgendamento = function () {
+//    $("#preloader").on(500).fadeIn();
+//    $(".preloader").on(600).fadeIn("slow");
+//    let modal = '#div-agendamento';
 
-    //ExibirLoader();
+//    //ExibirLoader();
 
-    //var pCliente = new FormData(document.getElementById("frm-cliente"));
+//    //var pCliente = new FormData(document.getElementById("frm-cliente"));
 
-    var form = document.querySelector('#frmAgenda');
-    var agendamento = new FormData(form);
+//    var form = document.querySelector('#frmAgenda');
+//    var agendamento = new FormData(form);
 
-    $.ajax({
-        type: "POST",
-        url: "Agendamento/Incluir",
-        enctype: 'multipart/form-data',
-        contentType: false,
-        processData: false,
-        data: agendamento,
-        success: function (result) {
-            if (result)
-                ExibirMensagem('success', 'Sucesso', 'Dados salvos com sucesso!')
-        },
-        complete: function () {
-            //ListarClientes(1);
-        },
-        error: function (request, status, error) {
-            let dom_nodes = $($.parseHTML(request.responseText));
-            ExibirMensagemErroCritico('Operação não realizada', dom_nodes.filter('title').text());
-            OcultarLoader();
-        }
-    }).then(function () {
-        //FecharModal(modal);
-        OcultarLoader();
-    });
-}
+//    $.ajax({
+//        type: "POST",
+//        url: "Agendamento/Incluir",
+//        enctype: 'multipart/form-data',
+//        contentType: false,
+//        processData: false,
+//        data: agendamento,
+//        success: function (result) {
+//            if (result) {
+//                ExibirMensagem('success', 'Sucesso', 'Dados salvos com sucesso!')
+//                calendar.Destroy();
+//                calendar.refetchEvents();
+//            }
+//        },
+//        complete: function () {
+//            $("#preloader").on(500).fadeOut();
+//            $(".preloader").on(600).fadeOut("slow");
+//        },
+//        error: function (request, status, error) {
+//            let dom_nodes = $($.parseHTML(request.responseText));
+//            ExibirMensagemErroCritico('Operação não realizada', dom_nodes.filter('title').text());
+//            OcultarLoader();
+//        }
+//    }).then(function () {
+//        $("#preloader").on(500).fadeOut();
+//        $(".preloader").on(600).fadeOut("slow");
+//    });
+//}
 
 function ListarAgendamentos(dia) {
-
-    var agendamento = {};
-    agendamento.DataAgendamento = "2021-11-13";   
+    $("#preloader").on(500).fadeIn();
+    $(".preloader").on(600).fadeIn("slow");
 
     $.ajax({
         dataType: 'json',
         type: "POST",
         url: "Agendamento/ListarPorDataHora",
         cache: false,
-        data: { agendamento },
+        data: dia,
         success: function (data, textStatus, xhr) {
             debugger;
-            
+
         },
         complete: function () {
-
+            $("#preloader").on(500).fadeOut();
+            $(".preloader").on(600).fadeOut("slow");
         },
         error: function (request, status, error) {
             let dom_nodes = $($.parseHTML(request.responseText));
@@ -200,10 +259,27 @@ var fecharmodalagendamento = () => {
     $('#txtData').val('');
     $('#txtHora').val('');
 
-    $('#div-agendamento').hide();
-    $('#txtHora').val('');
-    $('#div-agendamento').hide();
+    $('#div-agendamento').on(600).fadeOut("slow");
 }
+
+var abrirmodalagendamento = () => {
+    $('#txtEmail').val('');
+    $('#txtNome').val('');
+    $('#txtData').val('');
+    $('#txtHora').val('');
+
+    $('#div-agendamento').on(600).fadeIn("slow");
+}
+
+var fecharmodalcliente = () => {
+    $('#txtEmail').val('');
+    $('#txtNome').val('');
+    $('#txtData').val('');
+    $('#txtHora').val('');
+
+    $('#div-cliente').on(600).fadeOut("slow");
+}
+
 
 function validateEmail(email) {
     var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
@@ -214,6 +290,3 @@ function validateEmail(email) {
         return false;
     }
 }
-
-
-

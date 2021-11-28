@@ -16,9 +16,13 @@ namespace Barbearia.Controllers
             //     Incluir(agendamento);
             // }
 
+            ViewBag.Horas = ListarHoras();
+
+
             return View();
         }
 
+        
         [HttpPost]
         public JsonResult Incluir(Entidades.Agendamento agendamento)
         {
@@ -56,6 +60,21 @@ namespace Barbearia.Controllers
             return agendamentos;
         }
 
+        [HttpGet]
+        public PartialViewResult ListarPorData(string data)
+        {
+            Entidades.Agendamento agendamento = new Entidades.Agendamento();
+
+            agendamento.DataAgendamento = Convert.ToDateTime(data);
+
+
+            Negocios.Agendamento nAgendamento = new Negocios.Agendamento();
+
+            var agendamentos = nAgendamento.ListarPorDataHora(agendamento);
+
+            return PartialView("_Agendamentos", agendamentos);
+        }
+
         //[HttpPost]
         public JsonResult ListarCalendario()
         {
@@ -64,6 +83,15 @@ namespace Barbearia.Controllers
             var agendamentos = nAgendamento.ListarCalendario();
 
             return Json(agendamentos, JsonRequestBehavior.AllowGet);
+        }
+
+        public List<Entidades.Horas> ListarHoras()
+        {
+            Negocios.Hora nHora = new Negocios.Hora();
+
+            var horas = nHora.ListarHoras(null);
+
+            return horas;
         }
     }
 }

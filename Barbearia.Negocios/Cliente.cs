@@ -8,7 +8,7 @@ namespace Barbearia.Negocios
         {
             Dados.Repositorios.RepositorioCliente rCliente = new Dados.Repositorios.RepositorioCliente();
 
-            rCliente.Excuir(id);
+            rCliente.Excluir(id);
         }
 
         public void Incuir(Entidades.Cliente cliente)

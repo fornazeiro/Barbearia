@@ -88,11 +88,13 @@
     <Compile Include="Interfaces\IBase.cs" />
     <Compile Include="Interfaces\IClientes.cs" />
     <Compile Include="Interfaces\ILogin.cs" />
+    <Compile Include="Interfaces\IHoras.cs" />
     <Compile Include="Interfaces\IUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\RepositorioAgendamento.cs" />
     <Compile Include="Repositorios\RepositorioBase.cs" />
     <Compile Include="Repositorios\RepositorioCliente.cs" />
+    <Compile Include="Repositorios\RepositorioHora.cs" />
     <Compile Include="Repositorios\RepositorioLogin.cs" />
     <Compile Include="Repositorios\RepositorioUsuario.cs" />
   </ItemGroup>

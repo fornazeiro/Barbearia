@@ -7,7 +7,7 @@ namespace Barbearia.Dados.Repositorios
 {
     public class RepositorioUsuario : RepositorioBase, IUsuarios
     {
-        public void Excuir(int id)
+        public void Excluir(int id)
         {
             StringBuilder vSql = new StringBuilder();
 

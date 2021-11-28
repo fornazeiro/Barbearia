@@ -37,7 +37,7 @@ namespace Barbearia.Controllers
             Session["usuario"] = "Nelson";
             Session["email"] = "nafornazeiro@yahoo.com.br";
             
-            Response.Redirect("/Admin");
+            Response.Redirect("/AdmAgendamentos");
         }        
     }
 }

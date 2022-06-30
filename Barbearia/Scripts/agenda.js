@@ -1,35 +1,8 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        timeZone: 'local',
-        initialView: 'dayGridMonth',
-        locale: 'pt-br',
-        dateClick: function (info) {
-            $('#txtData').val(moment(info.dateStr).format('DD/MM/YYYY'));
-            $('#div-agendamento').on(600).fadeIn("slow");
-        },
-        eventClick: function (info) {
-            $('#txtData').val(moment(info.event.start).format('DD/MM/YYYY'));
-            ListarPorData(info.event.start);
-        },
-        events: {
-            url: 'Agendamento/ListarCalendario',
-            type: 'GET',
-            data: {},
-            success: function (doc) {
-                var events = [];
-                events.push(doc);
-            },
-            error: function () {
-                alert('there was an error while fetching events!');
-            },
-
-            color: 'transparent',   // a non-ajax option
-            textColor: 'red' // a non-ajax option
-        }
-    });
-    calendar.render();
-    ListarPorData();
+    CarregarCalendarioLocador(1);
+    $('#chkIsPcd').change(function () {
+        $('#hfdIsPcd').val($(this).is(':checked'));        
+    })
 });
 
 var ListarPorData = (dia) => {
@@ -49,7 +22,6 @@ var ListarPorData = (dia) => {
 
     dataFormatada = data.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
     dataAtual = dataFormatada;
-
 
     $.ajax({
         dataType: 'html',
@@ -91,11 +63,11 @@ var validarCliente = function (email) {
                     ExibirMensagem('warning', 'Aviso', 'Cliente não encontrado! <br /> É necessário fazer um cadastro.');
                     $('#txtEmailCliente').val($('#txtEmail').val());
                     $('#div-cliente').on(600).fadeIn("slow");
-                    
+
                 }
             },
             complete: function () {
-                
+
             },
             error: function (request, status, error) {
                 let dom_nodes = $($.parseHTML(request.responseText));
@@ -106,6 +78,50 @@ var validarCliente = function (email) {
     } else {
         ExibirMensagem('warning', 'Aviso', 'E-mail inválido!');
     }
+}
+
+var CarregarCalendarioLocador = function (id) {
+    $("#preloader").on(500).fadeIn();
+    $(".preloader").on(600).fadeIn("slow");
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        timeZone: 'local',
+        initialView: 'dayGridMonth',
+        locale: 'pt-br',
+        dateClick: function (info) {
+            $('#txtData').val(moment(info.dateStr).format('DD/MM/YYYY'));
+            $('#div-agendamento').on(600).fadeIn("slow");
+        },
+        eventClick: function (info) {
+            $('#txtData').val(moment(info.event.start).format('DD/MM/YYYY'));
+            ListarPorData(info.event.start);
+        },
+        events: {
+            url: 'Agendamento/ListarCalendario?IdLocacao=' + id,
+            dataType: "json",
+            cache: false,
+            type: 'GET',
+            success: function (doc) {
+                var events = [];
+                events.push(doc);
+                $('#hfdIdLocacao').val(id);
+                $("#preloader").on(500).fadeOut();
+                $(".preloader").on(600).fadeOut("slow");
+            },
+            error: function () {
+                alert('there was an error while fetching events!');
+            },
+
+            color: 'transparent',   // a non-ajax option
+            textColor: 'red' // a non-ajax option
+        }
+    })
+    calendar.render();
+    ListarPorData();
+}
+
+var ObterPCD = function (valor) {
+    alert(valor);
 }
 
 var SalvarAgendamento = function () {
@@ -130,11 +146,13 @@ var SalvarAgendamento = function () {
         success: function (result) {
             if (result) {
                 ExibirMensagem('success', 'Sucesso', 'Dados salvos com sucesso!')
+                CarregarCalendarioLocador(agendamento.get('IdLocacao'))
             }
         },
         complete: function () {
             $("#preloader").on(500).fadeOut();
             $(".preloader").on(600).fadeOut("slow");
+            fecharmodalagendamento();
         },
         error: function (request, status, error) {
             let dom_nodes = $($.parseHTML(request.responseText));
@@ -156,7 +174,8 @@ var SalvarCliente = function () {
 
     var form = document.querySelector('#frmCliente');
     var cliente = new FormData(form);
-
+    const ispcd = document.getElementById('chkIsPcd').checked;
+    //    cliente.append('IsPcd', ispcd)
     $.ajax({
         type: "POST",
         url: "Clientes/Incluir",
@@ -172,6 +191,7 @@ var SalvarCliente = function () {
             $('#div-cliente').on(600).fadeOut("slow");
             $("#preloader").on(500).fadeOut();
             $(".preloader").on(600).fadeOut("slow");
+            fecharmodalcliente();
         },
         error: function (request, status, error) {
             let dom_nodes = $($.parseHTML(request.responseText));

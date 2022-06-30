@@ -12,7 +12,7 @@
     <input type="text" id="txtData" class="datepicker" name="name" value="" />
 </div>*@
 
-<div id="div-agendamentos" style="max-width: 800px;">
+<div id="div-agendamentos" style="max-width: 1170px;">
     <table class="table" id="tbAgenda">
         <tr>
             <th>
@@ -25,6 +25,9 @@
                 Hora
             </th>
             <th>
+                Profissional
+            </th>
+            <th>
                 Status
             </th>
             <th></th>
@@ -32,34 +35,37 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cliente.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataAgendamento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HoraAgendamento)
-                </td>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataAgendamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoraAgendamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Locacao.Nome)
+        </td>
 
-                @if (item.Situacao == true)
-                {
-                    <td style="color: green;">
-                        Ativo
-                    </td>
-                }
-                else
-                {
-                    <td style="color: red;">
-                        Inativo
-                    </td>
-                }
-
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+        @if (item.Situacao == true)
+        {
+            <td style="color: green;">
+                Ativo
             </td>
-            </tr>
+        }
+        else
+        {
+            <td style="color: red;">
+                Inativo
+            </td>
+        }
+
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+        </td>
+    </tr>
         }    
     </table>
 </div>

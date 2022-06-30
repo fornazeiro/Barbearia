@@ -4,9 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Barbearia.Entidades
 {
-    public class Cliente
+    public class Cliente: Base
     {
-        public int Id { get; set; }
         [Required(ErrorMessage = "O campo Cliente é obrigatório")]
         [DisplayName("Cliente")]
         public string Nome { get; set; }
@@ -21,5 +20,6 @@ namespace Barbearia.Entidades
         public string Telefone { get; set; }
         [DisplayName("Status")]
         public bool Situacao { get; set; }
+        public bool IsPcd { get; set; }
     }
 }

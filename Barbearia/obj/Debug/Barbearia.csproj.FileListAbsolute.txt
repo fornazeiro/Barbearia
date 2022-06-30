@@ -80,6 +80,7 @@ C:\Barbearia\Barbearia\Barbearia\bin\ZstdNet.dll
 C:\Barbearia\Barbearia\Barbearia\bin\Barbearia.Dados.dll
 C:\Barbearia\Barbearia\Barbearia\bin\Barbearia.Entidades.pdb
 C:\Barbearia\Barbearia\Barbearia\bin\Barbearia.Negocios.pdb
+C:\Barbearia\Barbearia\Barbearia\bin\Barbearia.Negocios.dll.config
 C:\Barbearia\Barbearia\Barbearia\bin\Barbearia.Shared.pdb
 C:\Barbearia\Barbearia\Barbearia\bin\Google.Protobuf.pdb
 C:\Barbearia\Barbearia\Barbearia\bin\Google.Protobuf.xml
@@ -110,7 +111,7 @@ C:\Barbearia\Barbearia\Barbearia\bin\pt-br\System.Web.Razor.resources.dll
 C:\Barbearia\Barbearia\Barbearia\bin\pt-br\System.Web.WebPages.resources.dll
 C:\Barbearia\Barbearia\Barbearia\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
 C:\Barbearia\Barbearia\Barbearia\bin\pt-br\System.Web.WebPages.Razor.resources.dll
-C:\Barbearia\Barbearia\Barbearia\obj\Debug\Barbearia.csprojAssemblyReference.cache
+C:\Barbearia\Barbearia\Barbearia\obj\Debug\Barbearia.csproj.AssemblyReference.cache
 C:\Barbearia\Barbearia\Barbearia\obj\Debug\Barbearia.csproj.CoreCompileInputs.cache
 C:\Barbearia\Barbearia\Barbearia\obj\Debug\Barbearia.csproj.CopyComplete
 C:\Barbearia\Barbearia\Barbearia\obj\Debug\Barbearia.dll

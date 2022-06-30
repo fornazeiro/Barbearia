@@ -1,5 +1,6 @@
 ﻿using Barbearia.Dados.Interfaces;
 using Barbearia.Entidades;
+using Barbearia.Shared;
 using System.Text;
 
 namespace Barbearia.Dados.Repositorios
@@ -24,8 +25,9 @@ namespace Barbearia.Dados.Repositorios
 
             while (reader.Read())
             {
-                usuario.Nome = reader["nome"].ToString();
-                usuario.Email = reader["email"].ToString();
+                usuario.Id = reader["id"].ConvertObjectToInt();
+                usuario.Nome = reader["nome"].ConvertObjectToString();
+                usuario.Email = reader["email"].ConvertObjectToString();
             }
 
             reader.Close();

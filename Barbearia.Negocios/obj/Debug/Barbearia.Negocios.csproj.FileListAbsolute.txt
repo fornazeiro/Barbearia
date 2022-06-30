@@ -33,6 +33,7 @@ C:\Barbearia\Barbearia.Negocios\obj\Debug\Barbearia.Negocios.csproj.CoreCompileI
 C:\Barbearia\Barbearia.Negocios\obj\Debug\Barbearia.Negocios.csproj.CopyComplete
 C:\Barbearia\Barbearia.Negocios\obj\Debug\Barbearia.Negocios.dll
 C:\Barbearia\Barbearia.Negocios\obj\Debug\Barbearia.Negocios.pdb
+C:\Barbearia\Barbearia\Barbearia.Negocios\bin\Debug\Barbearia.Negocios.dll.config
 C:\Barbearia\Barbearia\Barbearia.Negocios\bin\Debug\Barbearia.Negocios.dll
 C:\Barbearia\Barbearia\Barbearia.Negocios\bin\Debug\Barbearia.Negocios.pdb
 C:\Barbearia\Barbearia\Barbearia.Negocios\bin\Debug\Barbearia.Dados.dll
@@ -62,9 +63,8 @@ C:\Barbearia\Barbearia\Barbearia.Negocios\bin\Debug\System.Buffers.xml
 C:\Barbearia\Barbearia\Barbearia.Negocios\bin\Debug\K4os.Compression.LZ4.xml
 C:\Barbearia\Barbearia\Barbearia.Negocios\bin\Debug\K4os.Hash.xxHash.xml
 C:\Barbearia\Barbearia\Barbearia.Negocios\bin\Debug\System.Numerics.Vectors.xml
-C:\Barbearia\Barbearia\Barbearia.Negocios\obj\Debug\Barbearia.Negocios.csprojAssemblyReference.cache
+C:\Barbearia\Barbearia\Barbearia.Negocios\obj\Debug\Barbearia.Negocios.csproj.AssemblyReference.cache
 C:\Barbearia\Barbearia\Barbearia.Negocios\obj\Debug\Barbearia.Negocios.csproj.CoreCompileInputs.cache
 C:\Barbearia\Barbearia\Barbearia.Negocios\obj\Debug\Barbearia.Negocios.csproj.CopyComplete
 C:\Barbearia\Barbearia\Barbearia.Negocios\obj\Debug\Barbearia.Negocios.dll
 C:\Barbearia\Barbearia\Barbearia.Negocios\obj\Debug\Barbearia.Negocios.pdb
-C:\Barbearia\Barbearia\Barbearia.Negocios\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll

@@ -26,11 +26,11 @@ namespace Barbearia.Negocios
             rAgendamento.Incluir(agendamento);
         }
 
-        public List<Entidades.Calendario> ListarCalendario()
+        public List<Entidades.Calendario> ListarCalendario(int IdLocacao)
         {
             Dados.Repositorios.RepositorioAgendamento rAgendamento = new Dados.Repositorios.RepositorioAgendamento();
 
-            return rAgendamento.ListarCalendario();
+            return rAgendamento.ListarCalendario(IdLocacao);
         }
 
         public List<Entidades.Agendamento> ListarPorDataHora(Entidades.Agendamento agendamento)

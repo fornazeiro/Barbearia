@@ -61,7 +61,7 @@ C:\Barbearia\Barbearia\Barbearia.Dados\bin\Debug\System.Buffers.xml
 C:\Barbearia\Barbearia\Barbearia.Dados\bin\Debug\System.Memory.xml
 C:\Barbearia\Barbearia\Barbearia.Dados\bin\Debug\System.Numerics.Vectors.xml
 C:\Barbearia\Barbearia\Barbearia.Dados\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Barbearia\Barbearia\Barbearia.Dados\obj\Debug\Barbearia.Dados.csprojAssemblyReference.cache
+C:\Barbearia\Barbearia\Barbearia.Dados\obj\Debug\Barbearia.Dados.csproj.AssemblyReference.cache
 C:\Barbearia\Barbearia\Barbearia.Dados\obj\Debug\Barbearia.Dados.csproj.CoreCompileInputs.cache
 C:\Barbearia\Barbearia\Barbearia.Dados\obj\Debug\Barbearia.Dados.csproj.CopyComplete
 C:\Barbearia\Barbearia\Barbearia.Dados\obj\Debug\Barbearia.Dados.dll

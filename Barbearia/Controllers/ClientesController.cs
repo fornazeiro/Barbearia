@@ -95,7 +95,7 @@ namespace Barbearia.Controllers
             {
                 var cliente = nCliente.ListarPorEmail(email);
 
-                if (cliente == null)
+                if (cliente == null || string.IsNullOrEmpty(cliente.Nome))
                 {
                     return Json("Cliente não encontrado!", JsonRequestBehavior.AllowGet);
                 }

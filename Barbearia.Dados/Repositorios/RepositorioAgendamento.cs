@@ -32,10 +32,11 @@ namespace Barbearia.Dados.Repositorios
         {
             StringBuilder vSql = new StringBuilder();
 
-            vSql.AppendLine("INSERT INTO agendamentos(idcliente, data, hora, situacao)");
-            vSql.AppendFormat("VALUES('{0}', '{1}', '{2}', {3})", agendamento.IdCliente, 
+            vSql.AppendLine("INSERT INTO agendamentos(idcliente, data, hora, idlocacao, situacao)");
+            vSql.AppendFormat("VALUES('{0}', '{1}', '{2}', {3}, {4})", agendamento.IdCliente,
                                                              agendamento.DataAgendamento.ToString("yyyy-MM-dd"),
                                                              agendamento.HoraAgendamento,
+                                                             agendamento.IdLocacao,
                                                              agendamento.Situacao == true ? 1 : 0);
 
             OpenConnection();
@@ -44,7 +45,7 @@ namespace Barbearia.Dados.Repositorios
             command.CommandType = System.Data.CommandType.Text;
             command.CommandText = vSql.ToString();
 
-            command.ExecuteNonQuery();          
+            command.ExecuteNonQuery();
 
             Dispose();
         }
@@ -74,8 +75,9 @@ namespace Barbearia.Dados.Repositorios
             StringBuilder vSql = new StringBuilder();
             List<Entidades.Agendamento> agendamentos = new List<Entidades.Agendamento>();
 
-            vSql.AppendLine("SELECT a.id, a.data, a.hora, a.situacao, a.idcliente, c.nome AS cliente FROM agendamentos a");
-            vSql.AppendLine("INNER JOIN clientes c ON c.Id = a.IdCliente");
+            vSql.AppendLine("SELECT a.id, a.data, a.hora, a.situacao, a.idcliente, c.nome AS cliente, l.nome AS Locador FROM agendamentos a");
+            vSql.AppendLine("INNER JOIN clientes c ON c.id = a.idcliente");
+            vSql.AppendLine("INNER JOIN locacao l ON l.id = a.idlocacao");
 
             OpenConnection();
 
@@ -151,9 +153,12 @@ namespace Barbearia.Dados.Repositorios
             StringBuilder vSql = new StringBuilder();
             List<Entidades.Agendamento> agendamentos = new List<Entidades.Agendamento>();
 
-            vSql.AppendLine("SELECT a.id, a.data, a.hora, a.situacao, a.idcliente, c.nome AS cliente FROM agendamentos a");
-            vSql.AppendLine("INNER JOIN clientes c ON c.Id = a.IdCliente");
-            
+            //vSql.AppendLine("SELECT a.id, a.data, a.hora, a.situacao, a.idcliente, c.nome AS cliente FROM agendamentos a");
+            //vSql.AppendLine("INNER JOIN clientes c ON c.Id = a.IdCliente");
+           
+            vSql.AppendLine("SELECT a.id, a.data, a.hora, a.situacao, a.idcliente, c.nome AS cliente, l.nome AS profissional FROM agendamentos a");
+            vSql.AppendLine("INNER JOIN clientes c ON c.id = a.idcliente");
+            vSql.AppendLine("INNER JOIN locacao l ON l.id = a.idlocacao");
 
             if (agendamento != null)
             {
@@ -182,6 +187,7 @@ namespace Barbearia.Dados.Repositorios
                 agendamento.HoraAgendamento = reader["hora"].ConvertObjectToString();
                 agendamento.Cliente.Id = reader["idcliente"].ConvertObjectToInt();
                 agendamento.Cliente.Nome = reader["cliente"].ConvertObjectToString();
+                agendamento.Locacao.Nome = reader["profissional"].ConvertObjectToString();
                 agendamento.Situacao = reader["situacao"].ConvertObjectToBoolean();
 
                 agendamentos.Add(agendamento);
@@ -200,12 +206,15 @@ namespace Barbearia.Dados.Repositorios
             throw new NotImplementedException();
         }
 
-        public List<Entidades.Calendario> ListarCalendario()
+        public List<Entidades.Calendario> ListarCalendario(int IdLocacao)
         {
             StringBuilder vSql = new StringBuilder();
             List<Entidades.Calendario> calendarios = new List<Entidades.Calendario>();
 
             vSql.AppendLine("SELECT data, Count(*) AS quantidade FROM agendamentos");
+
+            if (IdLocacao > 0) vSql.AppendLine("WHERE idlocacao = " + IdLocacao);
+            
             vSql.AppendLine("GROUP BY data");
 
             OpenConnection();

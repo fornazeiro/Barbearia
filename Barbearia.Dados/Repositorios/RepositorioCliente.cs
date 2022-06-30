@@ -30,12 +30,13 @@ namespace Barbearia.Dados.Repositorios
         {
             StringBuilder vSql = new StringBuilder();
 
-            vSql.AppendLine("INSERT INTO clientes(nome, datanascimento, email, telefone, situacao)");
-            vSql.AppendFormat("VALUES('{0}', '{1}', '{2}', '{3}', {4})", cliente.Nome, 
+            vSql.AppendLine("INSERT INTO clientes(nome, datanascimento, email, telefone, situacao, ispcd)");
+            vSql.AppendFormat("VALUES('{0}', '{1}', '{2}', '{3}', {4}, {5})", cliente.Nome, 
                                                                           cliente.DataNascimento.ToString("yyyy-MM-dd"),
                                                                           cliente.Email,
                                                                           cliente.Telefone,
-                                                                          cliente.Situacao == true ? 1 : 0);
+                                                                          cliente.Situacao == true ? 1 : 0,
+                                                                          cliente.IsPcd == true ? 1 : 0);
 
             OpenConnection();
 
@@ -71,6 +72,7 @@ namespace Barbearia.Dados.Repositorios
                 cliente.Email = reader["Email"].ConvertObjectToString();
                 cliente.DataNascimento = reader["datanascimento"].ConvertObjectToDateTime();
                 cliente.Situacao = reader["situacao"].ConvertObjectToBoolean();
+                cliente.IsPcd = reader["ispcd"].ConvertObjectToBoolean();
 
                 clientes.Add(cliente);
             }
@@ -105,6 +107,7 @@ namespace Barbearia.Dados.Repositorios
                 cliente.Email = reader["email"].ConvertObjectToString();
                 cliente.DataNascimento = reader["datanascimento"].ConvertObjectToDateTime();
                 cliente.Situacao = reader["situacao"].ConvertObjectToBoolean();
+                cliente.IsPcd = reader["ispcd"].ConvertObjectToBoolean();
             }
 
             Dispose();
@@ -137,6 +140,7 @@ namespace Barbearia.Dados.Repositorios
                 cliente.Email = reader["Email"].ConvertObjectToString();
                 cliente.DataNascimento = reader["datanascimento"].ConvertObjectToDateTime();
                 cliente.Situacao = reader["situacao"].ConvertObjectToBoolean();
+                cliente.IsPcd = reader["ispcd"].ConvertObjectToBoolean();
             }
 
             Dispose();
@@ -168,6 +172,7 @@ namespace Barbearia.Dados.Repositorios
                 cliente.Email = reader["Email"].ConvertObjectToString();
                 cliente.DataNascimento = reader["datanascimento"].ConvertObjectToDateTime();
                 cliente.Situacao = reader["situacao"].ConvertObjectToBoolean();
+                cliente.IsPcd = reader["ispcd"].ConvertObjectToBoolean();
 
                 clientes.Add(cliente);
             }

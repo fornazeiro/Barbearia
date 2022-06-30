@@ -11,11 +11,13 @@ namespace Barbearia.Controllers
         // GET: Agendamento
         public ActionResult Index()
         {
+            Negocios.Locacao nLocacao = new Negocios.Locacao();
             //if (agendamento != null)
             // {
             //     Incluir(agendamento);
             // }
 
+            ViewBag.Locacoes = nLocacao.Listar();
             ViewBag.Horas = ListarHoras();
 
 
@@ -76,11 +78,11 @@ namespace Barbearia.Controllers
         }
 
         //[HttpPost]
-        public JsonResult ListarCalendario()
+        public JsonResult ListarCalendario(int IdLocacao = 1)
         {
             Negocios.Agendamento nAgendamento = new Negocios.Agendamento();
 
-            var agendamentos = nAgendamento.ListarCalendario();
+            var agendamentos = nAgendamento.ListarCalendario(IdLocacao);
 
             return Json(agendamentos, JsonRequestBehavior.AllowGet);
         }

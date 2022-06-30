@@ -10,6 +10,6 @@ namespace Barbearia.Dados.Interfaces
     public interface IAgendamentos : IBase<Agendamento>
     {
         List<Agendamento> ListarPorDataHora(Entidades.Agendamento agendamento);
-        List<Calendario> ListarCalendario();
+        List<Calendario> ListarCalendario(int IdLocacao);
     }
 }

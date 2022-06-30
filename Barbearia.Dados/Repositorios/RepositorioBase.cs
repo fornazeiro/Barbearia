@@ -7,7 +7,7 @@ namespace Barbearia.Dados.Repositorios
 {
     public class RepositorioBase : IDisposable
     {
-        internal string connectionString = ConfigurationManager.ConnectionStrings["BarberConnection"].ConnectionString;
+        internal string connectionString = ConfigurationManager.ConnectionStrings["NetcomConnection"].ConnectionString;
         private MySqlConnection _connection;
         private MySqlTransaction _transaction;
         public MySqlTransaction Transaction { get => _transaction; set => _transaction = value; }

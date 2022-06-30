@@ -9,7 +9,7 @@ namespace Barbearia.Controllers
         // GET: Login
         public ActionResult Index()
         {
-           
+
             return View();
         }
 
@@ -25,19 +25,16 @@ namespace Barbearia.Controllers
             }
 #endif
 
-            //var usuario = nLogin.Logon(login);
+            var usuario = nLogin.Logon(login);
 
-            //if (usuario != null)
-            //{
-            // Session["usuario"] = usuario.Nome;
-            //Session["email"] = usuario.Email;
+            if (usuario != null)
+            {
+                Session.Add("usuario", usuario.Nome);
+                Session.Add("email", usuario.Email);
+            }
 
-            //}
 
-            Session["usuario"] = "Nelson";
-            Session["email"] = "nafornazeiro@yahoo.com.br";
-            
             Response.Redirect("/AdmAgendamentos");
-        }        
+        }
     }
 }

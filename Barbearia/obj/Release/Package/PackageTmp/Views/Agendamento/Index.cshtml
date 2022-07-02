@@ -1,0 +1,148 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/css/agendamento.css" rel="stylesheet" />
+<link href="~/Content/css/cliente.css" rel="stylesheet" />
+<div class="col-lg-12 col-md-12 col-xs-12">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group" style="margin-left: 75px; margin-top: 15px;">
+                <label for="txtEmail">Selecione o Profisional</label>
+                <select id="selLocador" onchange="CarregarCalendarioLocador(this.value);" name="IdLocacao" class="input-lg">
+                    @foreach (var item in ViewBag.Locacoes)
+                    {
+                        <option value="@item.Id">@item.Nome</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-xs-12 agendamento">
+        <div id="calendar" class="calendar" style="position: relative; margin-top: 15px; max-height: 645px; height: 100%;"></div>
+    </div>
+    <div class="col-lg-4 col-xs-12 lista-agendamento">
+        <div class="text-right">
+            <!--<input type="button" class="botao" value="+" onclick="abrirmodalagendamento();" />-->
+        </div>
+        <div id="div-conteudo-agendamento">
+
+        </div>
+    </div>
+</div>
+<div id="div-agendamento">
+    <div id="div-conteudo-agendar">
+        <h3>Agendamento</h3>
+        <form id="frmAgenda" method="post">
+            <input type="hidden" id="hfdIdCliente" name="IdCliente" value="0" />
+            <input type="hidden" id="hfdIdLocacao" name="IdLocacao" value="1" />
+            <div class="row">
+                <div class="col-lg-11 col-xs-11">
+                    <div class="form-group">
+                        <label for="txtEmail">Email</label>
+                        <input type="email" class="form-control" id="txtEmail" name="Email" placeholder="Entre com seu e-mail" required>
+                    </div>
+                </div>
+                <div class="col-lg-1 col-xs-1 btn-validar">
+                    <span class="btn btn-xs btn-default" id="btnValidarCliente" onclick="validarCliente($('#txtEmail').val());"><i class="fa fa-check-circle"></i></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="txtNome">Nome</label>
+                        <input type="text" class="form-control" id="txtNome" name="Nome" placeholder="Entre com seu nome" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="txtData">Data</label>
+                        <input type="text" class="form-control datepicker" id="txtData" name="DataAgendamento" disabled>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="selHora">Hora</label>
+
+                        <select class="form-control" id="selHoras" name="HoraAgendamento">
+
+                            @foreach (var item in ViewBag.Horas)
+                            {
+                                <option value="@item.Hora">@item.Hora</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-right">
+                    <input type="button" class="btn btn-primary" value="Confirmar" onclick="SalvarAgendamento();" />
+                    <input type="button" class="btn btn-warning" onclick="fecharmodalagendamento();" value="Cancelar" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="div-cliente">
+    <form id="frmCliente">
+        <input type="hidden" id="hfdIsPcd" name="IsPcd" value="0" />
+        <div id="div-conteudo-cliente">
+            <h3>Cadastro de Clientes</h3>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="txtEmail">E-mail</label>
+                        <input type="email" class="form-control" id="txtEmailCliente" name="Email" placeholder="Entre com seu e-mail">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="txtNome">Nome</label>
+                        <input type="text" class="form-control" id="txtNomeCliente" name="Nome" placeholder="Entre com seu nome">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="txtTelefone">Telefone</label>
+                        <input type="text" class="form-control" id="txtTelefone" name="Telefone">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="txtTelefone">Data Nascimento</label>
+                        <input type="text" class="form-control" id="txtDataNascimento" name="DataNascimento">
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-2 col-xs-2">
+                    <div class="form-group" style="text-align: left;">
+                        <label for="chkIsPcd">PCD?</label>
+                        <input type="checkbox" class="form-control" id="chkIsPcd">
+                    </div>
+                </div>
+                <div class="col-lg-10 col-sm-10 col-xs-10">
+                    <div class="form-group">
+                            <label for="txtNecessidade">Qual ?</label>
+                        <input type="text" class="form-control" id="txtNecessidade" name="Necessidade">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-right">
+                    <input type="button" class="btn btn-primary" value="Confirmar" onclick="SalvarCliente();" />
+                    <input type="button" class="btn btn-warning" onclick="fecharmodalcliente();" value="Cancelar" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="~/Scripts/agenda.js"></script>
+
+<script>
+    $('.aagendamento').addClass('active');
+</script>

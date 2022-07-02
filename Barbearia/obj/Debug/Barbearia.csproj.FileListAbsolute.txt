@@ -116,3 +116,11 @@ C:\Barbearia\Barbearia\Barbearia\obj\Debug\Barbearia.csproj.CoreCompileInputs.ca
 C:\Barbearia\Barbearia\Barbearia\obj\Debug\Barbearia.csproj.CopyComplete
 C:\Barbearia\Barbearia\Barbearia\obj\Debug\Barbearia.dll
 C:\Barbearia\Barbearia\Barbearia\obj\Debug\Barbearia.pdb
+C:\Barbearia\Barbearia\Barbearia\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Barbearia\Barbearia\Barbearia\bin\System.Text.Encodings.Web.dll
+C:\Barbearia\Barbearia\Barbearia\bin\System.Threading.Tasks.Extensions.dll
+C:\Barbearia\Barbearia\Barbearia\bin\System.ValueTuple.dll
+C:\Barbearia\Barbearia\Barbearia\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Barbearia\Barbearia\Barbearia\bin\System.Text.Encodings.Web.xml
+C:\Barbearia\Barbearia\Barbearia\bin\System.Threading.Tasks.Extensions.xml
+C:\Barbearia\Barbearia\Barbearia\bin\System.ValueTuple.xml

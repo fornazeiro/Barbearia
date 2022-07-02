@@ -11,7 +11,7 @@ namespace Barbearia.Controllers
         // GET: AdmUsuarios
         public ActionResult Index()
         {
-            if ((Session == null || Session.Count == 0))
+            if ((Session == null || Session.Count <= 1))
             {
                 Response.Redirect("/Login");
             }

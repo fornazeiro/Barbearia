@@ -12,7 +12,7 @@ namespace Barbearia.Controllers.Admin
         // GET: Agendamentos
         public ActionResult Index()
         {
-            if ((Session == null || Session.Count == 0))
+            if ((Session == null || Session.Count <= 1))
             {
                 Response.Redirect("/Login");
             }

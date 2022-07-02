@@ -1,12 +1,13 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
     CarregarCalendarioLocador(1);
     $('#chkIsPcd').change(function () {
-        $('#hfdIsPcd').val($(this).is(':checked'));        
-    })
+        $('#hfdIsPcd').val($(this).is(':checked'));
+    });
+
+    
 });
 
 var ListarPorData = (dia) => {
-    debugger;
     $("#preloader").on(500).fadeIn();
     $(".preloader").on(600).fadeIn("slow");
     let dataAtual;
@@ -84,13 +85,19 @@ var CarregarCalendarioLocador = function (id) {
     $("#preloader").on(500).fadeIn();
     $(".preloader").on(600).fadeIn("slow");
     var calendarEl = document.getElementById('calendar');
+    var today = new Date();
     var calendar = new FullCalendar.Calendar(calendarEl, {
         timeZone: 'local',
         initialView: 'dayGridMonth',
         locale: 'pt-br',
         dateClick: function (info) {
-            $('#txtData').val(moment(info.dateStr).format('DD/MM/YYYY'));
-            $('#div-agendamento').on(600).fadeIn("slow");
+            var dayclick = new Date(moment(info.dateStr).format('YYYY-MM-DD'));
+            dayclick.setDate(dayclick.getDate() + 1);
+
+            if (dayclick >= today) {
+                $('#txtData').val(moment(info.dateStr).format('DD/MM/YYYY'));
+                $('#div-agendamento').on(600).fadeIn("slow");
+            }
         },
         eventClick: function (info) {
             $('#txtData').val(moment(info.event.start).format('DD/MM/YYYY'));
@@ -256,7 +263,7 @@ function ListarAgendamentos(dia) {
         cache: false,
         data: dia,
         success: function (data, textStatus, xhr) {
-            debugger;
+
 
         },
         complete: function () {

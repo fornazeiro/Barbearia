@@ -32,7 +32,7 @@ namespace Barbearia.Dados.Repositorios
             StringBuilder vSql = new StringBuilder();
 
             vSql.AppendLine("INSERT INTO locacao(nome, cpf, telefone, endereco, bairro, cidade, cadeiras, valor, situacao)");
-            vSql.AppendFormat("VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6}, {7}, {8})", locacao.Nome,
+            vSql.AppendFormat("VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6}, {7}, CAST('{8}' AS DECIMAL(15,2)))", locacao.Nome,
                                                                           locacao.Cpf,
                                                                           locacao.Telefone,
                                                                           locacao.Endereco,
@@ -66,7 +66,7 @@ namespace Barbearia.Dados.Repositorios
                               "                   cidade = '{5}', " +
                               "                   cep = '{6}', " +
                               "                   cadeiras = {7}, " +
-                              "                   valor = {8} " +
+                              "                   valor = CAST('{8}' AS DECIMAL(15,2)) " +
                               "                   WHERE id = {9}", 
                                                   locacao.Nome,
                                                   locacao.Cpf,

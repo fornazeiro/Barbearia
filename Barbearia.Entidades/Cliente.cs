@@ -21,5 +21,6 @@ namespace Barbearia.Entidades
         [DisplayName("Status")]
         public bool Situacao { get; set; }
         public bool IsPcd { get; set; }
+        public string Necessidade { get; set; }
     }
 }

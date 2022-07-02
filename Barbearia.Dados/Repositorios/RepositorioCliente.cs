@@ -30,11 +30,12 @@ namespace Barbearia.Dados.Repositorios
         {
             StringBuilder vSql = new StringBuilder();
 
-            vSql.AppendLine("INSERT INTO clientes(nome, datanascimento, email, telefone, situacao, ispcd)");
+            vSql.AppendLine("INSERT INTO clientes(nome, datanascimento, email, telefone, necessidade, situacao, ispcd)");
             vSql.AppendFormat("VALUES('{0}', '{1}', '{2}', '{3}', {4}, {5})", cliente.Nome, 
                                                                           cliente.DataNascimento.ToString("yyyy-MM-dd"),
                                                                           cliente.Email,
                                                                           cliente.Telefone,
+                                                                          cliente.Necessidade,
                                                                           cliente.Situacao == true ? 1 : 0,
                                                                           cliente.IsPcd == true ? 1 : 0);
 
@@ -73,6 +74,7 @@ namespace Barbearia.Dados.Repositorios
                 cliente.DataNascimento = reader["datanascimento"].ConvertObjectToDateTime();
                 cliente.Situacao = reader["situacao"].ConvertObjectToBoolean();
                 cliente.IsPcd = reader["ispcd"].ConvertObjectToBoolean();
+                cliente.Necessidade = reader["necessidade"].ConvertObjectToString();
 
                 clientes.Add(cliente);
             }
@@ -108,6 +110,7 @@ namespace Barbearia.Dados.Repositorios
                 cliente.DataNascimento = reader["datanascimento"].ConvertObjectToDateTime();
                 cliente.Situacao = reader["situacao"].ConvertObjectToBoolean();
                 cliente.IsPcd = reader["ispcd"].ConvertObjectToBoolean();
+                cliente.Necessidade = reader["necessidade"].ConvertObjectToString();
             }
 
             Dispose();
@@ -141,6 +144,7 @@ namespace Barbearia.Dados.Repositorios
                 cliente.DataNascimento = reader["datanascimento"].ConvertObjectToDateTime();
                 cliente.Situacao = reader["situacao"].ConvertObjectToBoolean();
                 cliente.IsPcd = reader["ispcd"].ConvertObjectToBoolean();
+                cliente.Necessidade = reader["necessidade"].ConvertObjectToString();
             }
 
             Dispose();
@@ -173,6 +177,7 @@ namespace Barbearia.Dados.Repositorios
                 cliente.DataNascimento = reader["datanascimento"].ConvertObjectToDateTime();
                 cliente.Situacao = reader["situacao"].ConvertObjectToBoolean();
                 cliente.IsPcd = reader["ispcd"].ConvertObjectToBoolean();
+                cliente.Necessidade = reader["necessidade"].ConvertObjectToString();
 
                 clientes.Add(cliente);
             }

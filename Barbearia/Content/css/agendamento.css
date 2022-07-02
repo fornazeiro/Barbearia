@@ -19,12 +19,12 @@
 #div-conteudo-agendar {
     position: absolute;
     padding: 10px;
-    width: 400px;
+    width: 450px;
     height: 330px;
     top: 50%;
     left: 50%;
     margin-top: -165px;
-    margin-left: -200px;
+    margin-left: -225px;
     background: #fff;
     border: 1px solid #eee;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, .5);
@@ -42,8 +42,8 @@
 }
 
     .btn-validar span {
-        color: green;
-        font-size: 2rem;
+        color: white;
+        font-size: 1.3rem;
     }
 
 .agendamento {

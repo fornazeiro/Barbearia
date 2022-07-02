@@ -9,3 +9,4 @@ C:\Barbearia\Barbearia\Barbearia.Shared\bin\Debug\Barbearia.Shared.pdb
 C:\Barbearia\Barbearia\Barbearia.Shared\obj\Debug\Barbearia.Shared.csproj.CoreCompileInputs.cache
 C:\Barbearia\Barbearia\Barbearia.Shared\obj\Debug\Barbearia.Shared.dll
 C:\Barbearia\Barbearia\Barbearia.Shared\obj\Debug\Barbearia.Shared.pdb
+C:\Barbearia\Barbearia\Barbearia.Shared\obj\Debug\Barbearia.Shared.csproj.AssemblyReference.cache

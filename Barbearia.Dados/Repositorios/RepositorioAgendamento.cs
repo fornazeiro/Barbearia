@@ -75,7 +75,7 @@ namespace Barbearia.Dados.Repositorios
             StringBuilder vSql = new StringBuilder();
             List<Entidades.Agendamento> agendamentos = new List<Entidades.Agendamento>();
 
-            vSql.AppendLine("SELECT a.id, a.data, a.hora, a.situacao, a.idcliente, c.nome AS cliente, l.nome AS Locador FROM agendamentos a");
+            vSql.AppendLine("SELECT a.id, a.data, a.hora, a.situacao, a.idcliente, c.nome AS cliente, l.nome AS Locador, c.ispcd FROM agendamentos a");
             vSql.AppendLine("INNER JOIN clientes c ON c.id = a.idcliente");
             vSql.AppendLine("INNER JOIN locacao l ON l.id = a.idlocacao");
 
@@ -98,6 +98,7 @@ namespace Barbearia.Dados.Repositorios
                 agendamento.Cliente.Id = reader["idcliente"].ConvertObjectToInt();
                 agendamento.Cliente.Nome = reader["cliente"].ConvertObjectToString();
                 agendamento.Situacao = reader["situacao"].ConvertObjectToBoolean();
+                agendamento.Cliente.IsPcd = reader["ispcd"].ConvertObjectToBoolean();
 
                 agendamentos.Add(agendamento);
             }
@@ -115,7 +116,7 @@ namespace Barbearia.Dados.Repositorios
             StringBuilder vSql = new StringBuilder();
             List<Entidades.Agendamento> agendamentos = new List<Entidades.Agendamento>();
 
-            vSql.AppendLine("SELECT a.id, a.data, a.hora, a.situacao, a.idcliente, c.nome AS cliente FROM agendamentos a");
+            vSql.AppendLine("SELECT a.id, a.data, a.hora, a.situacao, a.idcliente, c.nome AS cliente, c.ispcd FROM agendamentos a");
             vSql.AppendLine("INNER JOIN clientes c ON c.Id = a.IdCliente");
             vSql.AppendFormat("WHERE a.id = {0}", id);
 
@@ -138,6 +139,7 @@ namespace Barbearia.Dados.Repositorios
                 agendamento.Cliente.Id = reader["idcliente"].ConvertObjectToInt();
                 agendamento.Cliente.Nome = reader["cliente"].ConvertObjectToString();
                 agendamento.Situacao = reader["situacao"].ConvertObjectToBoolean();
+                agendamento.Cliente.IsPcd = reader["ispcd"].ConvertObjectToBoolean();
             }
 
             reader.Close();
@@ -156,7 +158,7 @@ namespace Barbearia.Dados.Repositorios
             //vSql.AppendLine("SELECT a.id, a.data, a.hora, a.situacao, a.idcliente, c.nome AS cliente FROM agendamentos a");
             //vSql.AppendLine("INNER JOIN clientes c ON c.Id = a.IdCliente");
            
-            vSql.AppendLine("SELECT a.id, a.data, a.hora, a.situacao, a.idcliente, c.nome AS cliente, l.nome AS profissional FROM agendamentos a");
+            vSql.AppendLine("SELECT a.id, a.data, a.hora, a.situacao, a.idcliente, c.nome AS cliente, l.nome AS profissional, ispcd FROM agendamentos a");
             vSql.AppendLine("INNER JOIN clientes c ON c.id = a.idcliente");
             vSql.AppendLine("INNER JOIN locacao l ON l.id = a.idlocacao");
 
@@ -189,6 +191,7 @@ namespace Barbearia.Dados.Repositorios
                 agendamento.Cliente.Nome = reader["cliente"].ConvertObjectToString();
                 agendamento.Locacao.Nome = reader["profissional"].ConvertObjectToString();
                 agendamento.Situacao = reader["situacao"].ConvertObjectToBoolean();
+                agendamento.Cliente.IsPcd = reader["ispcd"].ConvertObjectToBoolean();
 
                 agendamentos.Add(agendamento);
             }

@@ -1,0 +1,23 @@
+﻿#div-conteudo-login {
+    position: fixed;
+    width: 100%;
+    min-height: 100%;
+}
+
+.div-login {
+    position: absolute;
+    padding: 10px;
+    width: 400px;
+    height: 220px;
+    left: 40%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -125px;
+    background-color: #d0c440;
+}
+
+@media (max-width: 768px) {
+    .div-login {
+        left: 50%;
+    }
+}

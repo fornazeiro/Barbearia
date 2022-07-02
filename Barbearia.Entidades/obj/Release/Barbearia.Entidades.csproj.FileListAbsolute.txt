@@ -1,0 +1,6 @@
+C:\Barbearia\Barbearia\Barbearia.Entidades\bin\Release\Barbearia.Entidades.dll
+C:\Barbearia\Barbearia\Barbearia.Entidades\bin\Release\Barbearia.Entidades.pdb
+C:\Barbearia\Barbearia\Barbearia.Entidades\obj\Release\Barbearia.Entidades.csproj.AssemblyReference.cache
+C:\Barbearia\Barbearia\Barbearia.Entidades\obj\Release\Barbearia.Entidades.csproj.CoreCompileInputs.cache
+C:\Barbearia\Barbearia\Barbearia.Entidades\obj\Release\Barbearia.Entidades.dll
+C:\Barbearia\Barbearia\Barbearia.Entidades\obj\Release\Barbearia.Entidades.pdb

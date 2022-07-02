@@ -7,9 +7,13 @@ namespace Barbearia.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            if ((Session == null || Session.Count == 0))
+            if ((Session == null || Session.Count <= 1))
             {
                 Response.Redirect("/Login");
+            }
+            else
+            {
+                Response.Redirect("/AdmAgendamentos");
             }
 
             return View();

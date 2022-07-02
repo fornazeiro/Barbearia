@@ -1,0 +1,6 @@
+C:\Barbearia\Barbearia\Barbearia.Shared\bin\Release\Barbearia.Shared.dll
+C:\Barbearia\Barbearia\Barbearia.Shared\bin\Release\Barbearia.Shared.pdb
+C:\Barbearia\Barbearia\Barbearia.Shared\obj\Release\Barbearia.Shared.csproj.AssemblyReference.cache
+C:\Barbearia\Barbearia\Barbearia.Shared\obj\Release\Barbearia.Shared.csproj.CoreCompileInputs.cache
+C:\Barbearia\Barbearia\Barbearia.Shared\obj\Release\Barbearia.Shared.dll
+C:\Barbearia\Barbearia\Barbearia.Shared\obj\Release\Barbearia.Shared.pdb

@@ -20,6 +20,9 @@ namespace Barbearia.Controllers.Tests
         }
 
         [TestMethod()]
-        public void ListarPorDataHora() => Assert.IsNotNull(new Negocios.Agendamento().ListarPorDataHora(new Entidades.Agendamento()));
+        public void ListarPorDataHora()
+        {
+            Assert.IsNotNull(new Negocios.Agendamento().ListarPorDataHora(new Entidades.Agendamento()));
+        }
     }
 }

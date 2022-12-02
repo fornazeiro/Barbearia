@@ -37,14 +37,14 @@
             <input type="hidden" id="hfdIdCliente" name="IdCliente" value="0" />
             <input type="hidden" id="hfdIdLocacao" name="IdLocacao" value="1" />
             <div class="row">
-                <div class="col-lg-11 col-xs-11">
+                <div class="col-lg-10 col-xs-10">
                     <div class="form-group">
                         <label for="txtEmail">Email</label>
                         <input type="email" class="form-control" id="txtEmail" name="Email" placeholder="Entre com seu e-mail" required>
                     </div>
                 </div>
-                <div class="col-lg-1 col-xs-1 btn-validar">
-                    <span class="btn btn-xs btn-default" id="btnValidarCliente" onclick="validarCliente($('#txtEmail').val());"><i class="fa fa-check-circle"></i></span>
+                <div class="col-lg-2 col-xs-2 btn-validar">
+                    <span class="btn btn-sm btn-info btn-validacao" id="btnValidarCliente" onclick="validarCliente($('#txtEmail').val());">Validar</i></span>
                 </div>
             </div>
             <div class="row">

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barbearia.Dados", "Barbeari
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barbearia.Shared", "Barbearia.Shared\Barbearia.Shared.csproj", "{01CD36C4-D09E-4D2F-9D43-D4D6C66C9793}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarbeariaTests", "BarbeariaTests\BarbeariaTests.csproj", "{BAABC857-E97E-4601-8401-BBA42D965E18}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -127,6 +129,26 @@ Global
 		{01CD36C4-D09E-4D2F-9D43-D4D6C66C9793}.Release|x64.Build.0 = Release|Any CPU
 		{01CD36C4-D09E-4D2F-9D43-D4D6C66C9793}.Release|x86.ActiveCfg = Release|Any CPU
 		{01CD36C4-D09E-4D2F-9D43-D4D6C66C9793}.Release|x86.Build.0 = Release|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Debug|ARM.Build.0 = Debug|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Debug|x64.Build.0 = Debug|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Debug|x86.Build.0 = Debug|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Release|ARM.ActiveCfg = Release|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Release|ARM.Build.0 = Release|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Release|ARM64.Build.0 = Release|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Release|x64.ActiveCfg = Release|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Release|x64.Build.0 = Release|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Release|x86.ActiveCfg = Release|Any CPU
+		{BAABC857-E97E-4601-8401-BBA42D965E18}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

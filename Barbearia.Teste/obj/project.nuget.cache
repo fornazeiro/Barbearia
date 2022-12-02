@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "CtKZmfbiOzXAHTTn52K/v29FVqCNUXnZxaQQI5hERMQpR9kBhdZR7lz76CMcJkMenPPaTas7EpRP9am0foVDew==",
+  "success": true,
+  "projectFilePath": "C:\\Barbearia\\Barbearia\\Barbearia.Teste\\Barbearia.Teste.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nafor\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
+    "C:\\Users\\nafor\\.nuget\\packages\\microsoft.net.test.sdk\\16.5.0\\microsoft.net.test.sdk.16.5.0.nupkg.sha512",
+    "C:\\Users\\nafor\\.nuget\\packages\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512",
+    "C:\\Users\\nafor\\.nuget\\packages\\nunit3testadapter\\3.16.1\\nunit3testadapter.3.16.1.nupkg.sha512",
+    "C:\\Users\\nafor\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
+    "C:\\Users\\nafor\\.nuget\\packages\\xunit.extensibility.core\\2.4.2\\xunit.extensibility.core.2.4.2.nupkg.sha512"
+  ],
+  "logs": []
+}

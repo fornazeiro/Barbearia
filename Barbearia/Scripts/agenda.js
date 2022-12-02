@@ -301,8 +301,9 @@ var abrirmodalagendamento = () => {
 var fecharmodalcliente = () => {
     $('#txtEmail').val('');
     $('#txtNome').val('');
-    $('#txtData').val('');
-    $('#txtHora').val('');
+    $('#txtTelefone').val('');
+    $('#txtDataNascimento').val('');
+    $('#txtNecessidade').val('');
 
     $('#div-cliente').on(600).fadeOut("slow");
 }

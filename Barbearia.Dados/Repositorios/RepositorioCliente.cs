@@ -31,7 +31,7 @@ namespace Barbearia.Dados.Repositorios
             StringBuilder vSql = new StringBuilder();
 
             vSql.AppendLine("INSERT INTO clientes(nome, datanascimento, email, telefone, necessidade, situacao, ispcd)");
-            vSql.AppendFormat("VALUES('{0}', '{1}', '{2}', '{3}', {4}, {5})", cliente.Nome, 
+            vSql.AppendFormat("VALUES('{0}', '{1}', '{2}', '{3}', '{4}', {5}, {6})", cliente.Nome, 
                                                                           cliente.DataNascimento.ToString("yyyy-MM-dd"),
                                                                           cliente.Email,
                                                                           cliente.Telefone,

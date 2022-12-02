@@ -2,6 +2,7 @@
 using Barbearia.Shared;
 using Newtonsoft.Json;
 using System;
+using System.Configuration;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -21,21 +22,21 @@ namespace Barbearia.Controllers
         }
 
         [HttpPost]
-        public async Task Logon(Login login)
+        public async Task Logon(Entidades.Login login)
         {
-            // string Baseurl = "api.newtisolutions.com.br/";
-            string Baseurl = "https://localhost:5001/";
-
+            //string Baseurl = "api.newtisolutions.com.br/";
+            string Baseurl = ConfigurationManager.AppSettings.Get("BasicApiUrl");
             if (string.IsNullOrEmpty(login.Email) || string.IsNullOrEmpty(login.Senha))
                 Response.Redirect("/Login");
             else
             {
 
-                //Negocios.Login nLogin = new Negocios.Login();
+                Negocios.Login nLogin = new Negocios.Login();
 
                 login.Senha = login.Senha.cryptographyPass();
 
-                var usuario = new Usuario();
+                //var usuario = nLogin.Logon(login);
+                var user = new Usuario();
 
                 using (var client = new HttpClient())
                 {
@@ -45,23 +46,23 @@ namespace Barbearia.Controllers
                     //Define request data format
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     //Sending request to find web api REST service resource GetAllEmployees using HttpClient
-                    HttpResponseMessage Res = await client.PostAsync("api/login", new StringContent(JsonConvert.SerializeObject(login), Encoding.UTF8, "application/json"));
+                    var ResponseTask = await client.PostAsync("api/Login/Logar", new StringContent(JsonConvert.SerializeObject(login), Encoding.UTF8, "application/json"));
                     //Checking the response is successful or not which is sent using HttpClient
-                    if (Res.IsSuccessStatusCode)
+                    if (ResponseTask.IsSuccessStatusCode)
                     {
                         //Storing the response details recieved from web api
-                        var EmpResponse = Res.Content.ReadAsStringAsync().Result;
+                        var EmpResponse = ResponseTask.Content.ReadAsStringAsync().Result;
                         //Deserializing the response recieved from web api and storing into the Employee list
-                        var user = JsonConvert.DeserializeObject<UsuarioObj>(EmpResponse);
+                        var retorno = JsonConvert.DeserializeObject<Retorno<Usuario>>(EmpResponse);
 
-                        usuario = user.Usuario;
-                    }
+                        user = retorno.ObjetoRetorno.ConvertToObject<Usuario>();
+                    }                     
                 }
 
-                if (usuario != null && usuario.Id > 0)
+                if (user != null && user.Id > 0)
                 {
-                    Session.Add("usuario", usuario.Nome);
-                    Session.Add("email", usuario.Email);
+                    Session.Add("usuario", user.Nome);
+                    Session.Add("email", user.Email);
                     Response.Redirect("/AdmAgendamentos");
                 }
                 else

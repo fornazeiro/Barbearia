@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "uL9OFuaTiAIDwXI7YbSvzGRlfguiebAxNRipM7qnMKdX1gi5TUYswUCtn6Z9Wn9M8OArA45mM1Jo/6Y89KS+JQ==",
+  "success": true,
+  "projectFilePath": "C:\\Barbearia\\Barbearia\\Barbearia.TesteTests1\\Barbearia.TesteTests1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nafor\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
+    "C:\\Users\\nafor\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",
+    "C:\\Users\\nafor\\.nuget\\packages\\microsoft.net.test.sdk\\16.9.4\\microsoft.net.test.sdk.16.9.4.nupkg.sha512",
+    "C:\\Users\\nafor\\.nuget\\packages\\mstest.testadapter\\2.2.3\\mstest.testadapter.2.2.3.nupkg.sha512",
+    "C:\\Users\\nafor\\.nuget\\packages\\mstest.testframework\\2.2.3\\mstest.testframework.2.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,147 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Barbearia\\Barbearia\\Barbearia.Teste\\Barbearia.Teste.csproj": {}
+  },
+  "projects": {
+    "C:\\Barbearia\\Barbearia\\Barbearia.Dados\\Barbearia.Dados.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Barbearia\\Barbearia\\Barbearia.Dados\\Barbearia.Dados.csproj",
+        "projectName": "Barbearia.Dados",
+        "projectPath": "C:\\Barbearia\\Barbearia\\Barbearia.Dados\\Barbearia.Dados.csproj",
+        "frameworks": {
+          "net461": {
+            "projectReferences": {
+              "C:\\Barbearia\\Barbearia\\Barbearia.Entidades\\Barbearia.Entidades.csproj": {
+                "projectPath": "C:\\Barbearia\\Barbearia\\Barbearia.Entidades\\Barbearia.Entidades.csproj"
+              },
+              "C:\\Barbearia\\Barbearia\\Barbearia.Shared\\Barbearia.Shared.csproj": {
+                "projectPath": "C:\\Barbearia\\Barbearia\\Barbearia.Shared\\Barbearia.Shared.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "C:\\Barbearia\\Barbearia\\Barbearia.Entidades\\Barbearia.Entidades.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Barbearia\\Barbearia\\Barbearia.Entidades\\Barbearia.Entidades.csproj",
+        "projectName": "Barbearia.Entidades",
+        "projectPath": "C:\\Barbearia\\Barbearia\\Barbearia.Entidades\\Barbearia.Entidades.csproj",
+        "frameworks": {
+          "net461": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "C:\\Barbearia\\Barbearia\\Barbearia.Negocios\\Barbearia.Negocios.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Barbearia\\Barbearia\\Barbearia.Negocios\\Barbearia.Negocios.csproj",
+        "projectName": "Barbearia.Negocios",
+        "projectPath": "C:\\Barbearia\\Barbearia\\Barbearia.Negocios\\Barbearia.Negocios.csproj",
+        "frameworks": {
+          "net461": {
+            "projectReferences": {
+              "C:\\Barbearia\\Barbearia\\Barbearia.Dados\\Barbearia.Dados.csproj": {
+                "projectPath": "C:\\Barbearia\\Barbearia\\Barbearia.Dados\\Barbearia.Dados.csproj"
+              },
+              "C:\\Barbearia\\Barbearia\\Barbearia.Entidades\\Barbearia.Entidades.csproj": {
+                "projectPath": "C:\\Barbearia\\Barbearia\\Barbearia.Entidades\\Barbearia.Entidades.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "C:\\Barbearia\\Barbearia\\Barbearia.Shared\\Barbearia.Shared.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Barbearia\\Barbearia\\Barbearia.Shared\\Barbearia.Shared.csproj",
+        "projectName": "Barbearia.Shared",
+        "projectPath": "C:\\Barbearia\\Barbearia\\Barbearia.Shared\\Barbearia.Shared.csproj",
+        "frameworks": {
+          "net461": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "C:\\Barbearia\\Barbearia\\Barbearia.Teste\\Barbearia.Teste.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Barbearia\\Barbearia\\Barbearia.Teste\\Barbearia.Teste.csproj",
+        "projectName": "Barbearia.Teste",
+        "projectPath": "C:\\Barbearia\\Barbearia\\Barbearia.Teste\\Barbearia.Teste.csproj",
+        "packagesPath": "C:\\Users\\nafor\\.nuget\\packages\\",
+        "outputPath": "C:\\Barbearia\\Barbearia\\Barbearia.Teste\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nafor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net461"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net461": {
+            "targetAlias": "net461",
+            "projectReferences": {
+              "C:\\Barbearia\\Barbearia\\Barbearia.Negocios\\Barbearia.Negocios.csproj": {
+                "projectPath": "C:\\Barbearia\\Barbearia\\Barbearia.Negocios\\Barbearia.Negocios.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net461": {
+          "targetAlias": "net461",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.5.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.16.1, )"
+            },
+            "xunit.extensibility.core": {
+              "target": "Package",
+              "version": "[2.4.2, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\Barbearia\Publish</_PublishTargetUrl>
-    <History>True|2022-07-01T21:17:17.7587644Z;</History>
+    <History>True|2022-07-02T19:31:56.1557145Z;True|2022-07-02T15:36:23.3028181-03:00;True|2022-07-02T14:04:58.8561815-03:00;True|2022-07-02T12:01:57.5151144-03:00;True|2022-07-02T11:57:33.2565472-03:00;True|2022-07-01T18:17:17.7587644-03:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -15,40 +15,40 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/10/2013 15:29:20</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/01/2022 18:17:14</publishTime>
+      <publishTime>07/02/2022 16:31:52</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>07/01/2022 18:17:14</publishTime>
+      <publishTime>07/02/2022 16:31:52</publishTime>
     </File>
     <File Include="bin/Barbearia.Dados.dll">
-      <publishTime>07/01/2022 18:17:01</publishTime>
+      <publishTime>07/02/2022 16:31:45</publishTime>
     </File>
     <File Include="bin/Barbearia.Dados.dll.config">
       <publishTime>07/01/2022 17:20:46</publishTime>
     </File>
     <File Include="bin/Barbearia.Dados.pdb">
-      <publishTime>07/01/2022 18:17:01</publishTime>
+      <publishTime>07/02/2022 16:31:45</publishTime>
     </File>
     <File Include="bin/Barbearia.dll">
-      <publishTime>07/01/2022 18:17:02</publishTime>
+      <publishTime>07/02/2022 16:31:45</publishTime>
     </File>
     <File Include="bin/Barbearia.Entidades.dll">
-      <publishTime>07/01/2022 18:17:01</publishTime>
+      <publishTime>07/02/2022 15:36:14</publishTime>
     </File>
     <File Include="bin/Barbearia.Entidades.pdb">
-      <publishTime>07/01/2022 18:17:01</publishTime>
+      <publishTime>07/02/2022 15:36:14</publishTime>
     </File>
     <File Include="bin/Barbearia.Negocios.dll">
-      <publishTime>07/01/2022 18:17:02</publishTime>
+      <publishTime>07/02/2022 16:31:45</publishTime>
     </File>
     <File Include="bin/Barbearia.Negocios.dll.config">
       <publishTime>06/27/2022 16:05:22</publishTime>
     </File>
     <File Include="bin/Barbearia.Negocios.pdb">
-      <publishTime>07/01/2022 18:17:02</publishTime>
+      <publishTime>07/02/2022 16:31:45</publishTime>
     </File>
     <File Include="bin/Barbearia.pdb">
-      <publishTime>07/01/2022 18:17:02</publishTime>
+      <publishTime>07/02/2022 16:31:45</publishTime>
     </File>
     <File Include="bin/Barbearia.Shared.dll">
       <publishTime>07/01/2022 18:17:01</publishTime>
@@ -73,6 +73,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="bin/K4os.Hash.xxHash.dll">
       <publishTime>07/03/2019 20:39:02</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>10/22/2021 20:42:08</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>09/05/2018 15:10:50</publishTime>
@@ -264,7 +267,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/15/2018 13:29:44</publishTime>
     </File>
     <File Include="bin/System.Runtime.CompilerServices.Unsafe.dll">
-      <publishTime>10/19/2020 18:46:30</publishTime>
+      <publishTime>10/22/2021 20:40:18</publishTime>
+    </File>
+    <File Include="bin/System.Text.Encodings.Web.dll">
+      <publishTime>10/22/2021 20:41:14</publishTime>
+    </File>
+    <File Include="bin/System.Threading.Tasks.Extensions.dll">
+      <publishTime>02/19/2020 07:05:18</publishTime>
+    </File>
+    <File Include="bin/System.ValueTuple.dll">
+      <publishTime>05/15/2018 10:29:52</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>11/28/2018 13:04:24</publishTime>
@@ -333,7 +345,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/22/2021 20:46:57</publishTime>
     </File>
     <File Include="Content/css/agendamento.css">
-      <publishTime>06/29/2022 11:40:46</publishTime>
+      <publishTime>07/02/2022 09:24:48</publishTime>
     </File>
     <File Include="Content/css/animate.css">
       <publishTime>11/14/2021 09:43:27</publishTime>
@@ -963,13 +975,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/14/2021 09:36:19</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/01/2022 18:17:06</publishTime>
+      <publishTime>07/02/2022 16:31:46</publishTime>
     </File>
     <File Include="Scripts/admAgendamentos.js">
       <publishTime>11/24/2021 22:19:46</publishTime>
     </File>
     <File Include="Scripts/agenda.js">
-      <publishTime>06/30/2022 11:24:58</publishTime>
+      <publishTime>07/02/2022 15:29:06</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>11/14/2021 09:36:19</publishTime>
@@ -1022,11 +1034,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>11/14/2021 09:36:25</publishTime>
     </File>
+    <File Include="Scripts/moment.min.js">
+      <publishTime>11/15/2021 09:33:09</publishTime>
+    </File>
     <File Include="Views/AdmAgendamentos/Edit.cshtml">
       <publishTime>11/27/2021 14:08:14</publishTime>
     </File>
     <File Include="Views/AdmAgendamentos/Index.cshtml">
-      <publishTime>06/30/2022 09:58:52</publishTime>
+      <publishTime>07/02/2022 09:04:29</publishTime>
     </File>
     <File Include="Views/Admin/Index.cshtml">
       <publishTime>11/21/2021 21:28:42</publishTime>
@@ -1035,10 +1050,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/27/2021 13:26:29</publishTime>
     </File>
     <File Include="Views/Agendamento/Index.cshtml">
-      <publishTime>06/30/2022 10:28:34</publishTime>
+      <publishTime>07/02/2022 15:24:10</publishTime>
     </File>
     <File Include="Views/Agendamento/_Agendamentos.cshtml">
-      <publishTime>11/27/2021 10:30:54</publishTime>
+      <publishTime>07/02/2022 15:34:51</publishTime>
     </File>
     <File Include="Views/Clientes/Index.cshtml">
       <publishTime>11/24/2021 22:19:46</publishTime>
@@ -1059,13 +1074,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/24/2021 22:19:46</publishTime>
     </File>
     <File Include="Views/Locacao/Create.cshtml">
-      <publishTime>06/28/2022 18:32:30</publishTime>
+      <publishTime>07/02/2022 16:22:31</publishTime>
     </File>
     <File Include="Views/Locacao/Edit.cshtml">
-      <publishTime>06/28/2022 18:31:54</publishTime>
+      <publishTime>07/02/2022 16:21:40</publishTime>
     </File>
     <File Include="Views/Locacao/Index.cshtml">
-      <publishTime>07/01/2022 18:14:32</publishTime>
+      <publishTime>07/02/2022 16:22:35</publishTime>
     </File>
     <File Include="Views/Login/Index.cshtml">
       <publishTime>11/27/2021 15:42:14</publishTime>
@@ -1086,7 +1101,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/14/2021 09:36:14</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/01/2022 18:17:03</publishTime>
+      <publishTime>07/02/2022 11:57:17</publishTime>
     </File>
   </ItemGroup>
 </Project>

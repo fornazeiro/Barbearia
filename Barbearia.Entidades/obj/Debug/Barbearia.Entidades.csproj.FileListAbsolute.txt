@@ -9,3 +9,4 @@ C:\Barbearia\Barbearia\Barbearia.Entidades\bin\Debug\Barbearia.Entidades.pdb
 C:\Barbearia\Barbearia\Barbearia.Entidades\obj\Debug\Barbearia.Entidades.csproj.CoreCompileInputs.cache
 C:\Barbearia\Barbearia\Barbearia.Entidades\obj\Debug\Barbearia.Entidades.dll
 C:\Barbearia\Barbearia\Barbearia.Entidades\obj\Debug\Barbearia.Entidades.pdb
+C:\Barbearia\Barbearia\Barbearia.Entidades\obj\Debug\Barbearia.Entidades.csproj.AssemblyReference.cache

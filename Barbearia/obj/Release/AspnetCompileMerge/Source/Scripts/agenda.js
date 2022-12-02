@@ -2,11 +2,12 @@
     CarregarCalendarioLocador(1);
     $('#chkIsPcd').change(function () {
         $('#hfdIsPcd').val($(this).is(':checked'));
-    })
+    });
+
+    
 });
 
 var ListarPorData = (dia) => {
-    debugger;
     $("#preloader").on(500).fadeIn();
     $(".preloader").on(600).fadeIn("slow");
     let dataAtual;
@@ -262,7 +263,7 @@ function ListarAgendamentos(dia) {
         cache: false,
         data: dia,
         success: function (data, textStatus, xhr) {
-            debugger;
+
 
         },
         complete: function () {
@@ -300,8 +301,9 @@ var abrirmodalagendamento = () => {
 var fecharmodalcliente = () => {
     $('#txtEmail').val('');
     $('#txtNome').val('');
-    $('#txtData').val('');
-    $('#txtHora').val('');
+    $('#txtTelefone').val('');
+    $('#txtDataNascimento').val('');
+    $('#txtNecessidade').val('');
 
     $('#div-cliente').on(600).fadeOut("slow");
 }
